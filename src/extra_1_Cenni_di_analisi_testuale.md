@@ -30,7 +30,7 @@ Nel processo di Word Tokenization vi sono alcuni costrutti da comprendere:
 
 Un esempio di eccezione potrebbe essere la parola "N.Y." che indica "New York". I punti all'interno della parola devono essere considerati in un modo tale da non dividerla in due token differenti. Essendo questo un caso particolare di tokenizzazione, consiste in una eccezione.  
 
-<img src="./_media/extra_1_1.png" alt="image-20210104142112369" style="margin-top:30px" />
+<img src="./chapters_media/extra_1_1.png" alt="image-20210104142112369" style="margin-top:30px" />
 
 
 
@@ -38,7 +38,7 @@ Un esempio di eccezione potrebbe essere la parola "N.Y." che indica "New York". 
 
 La word tokenization permette di dividere il testo in token, ma più token possono essere diverse coniugazioni dello stesso verbo e quindi indicare lo stesso termine (es. Run, Running $\to$ run). Lo *stemming* è un processo naive che permette di raggruppare tali varianti in un solo *stem* (termine originale), rimuovendo la parte finale dalle parole. È necessario notare che l'utilizzo dello stemming riduce la *semantica* del testo.  Un stemmer famoso per la lingua inglese è lo **Stemmer di Porter**, che consiste in 4 step: 
 
-<img src="./_media/extra_1_2.png" alt="image-20210104142444608" style="border:solid;margin:20px;" />
+<img src="./chapters_media/extra_1_2.png" alt="image-20210104142444608" style="border:solid;margin:20px;" />
 
 Gli stemmer possono essere inaccurati in alcuni casi, come nelle forme irregolari (ran $\rightarrow$ run). In certi casi, risulta conveniente adottare altri strumenti che vedremo in seguito.
 
@@ -63,7 +63,7 @@ Il linguaggio naturale è ambiguo: la semantica delle parole varia in base al co
 * Course-grained tag: un tag grossolano (es. verbo)
 * Fine-grained tag: un tag specifico (es. aggettivo possessivo)
 
-<img src="./_media/pos-tagging.png" alt="pos-tagging" style="border: solid; margin:20px;" />
+<img src="./chapters_media/pos-tagging.png" alt="pos-tagging" style="border: solid; margin:20px;" />
 
 
 
@@ -71,7 +71,7 @@ Il linguaggio naturale è ambiguo: la semantica delle parole varia in base al co
 
 Il processo di **Named Entity Recognition** (NER) consiste nell’identificazione e nella classificazione di predefiniti tipi di entità all'interno del testo. Esempi classici di entità riconoscibili in un documento sono organizzazioni, persone, luoghi, etc. 
 
-<img src="./_media/extra_1_3.png" alt="image-20210104143028709" style="border:solid;margin:20px;" />
+<img src="./chapters_media/extra_1_3.png" alt="image-20210104143028709" style="border:solid;margin:20px;" />
 
 
 
@@ -115,7 +115,7 @@ Ed indica le occorrenze del termine $t_i$ nel documento $d$. La rappresentazione
 
 Due documenti potrebbero avere frequenze simili, ma una significativa differenza in quantità di parole. Osservando gli istogrammi sottostanti notiamo la similarità tra i documenti $D_1$ e $D_2$.  Tuttavia, i valori nelle ordinate risiedono su grandezze differenti. 
 
-![image-20201101151732300](./_media/bow.png)
+![image-20201101151732300](./chapters_media/bow.png)
 
 Per mitigare il problema si ricorre alla *normalizzazione*, ovvero si divide ogni elemento del vettore *bow* per la somma di tutti gli elementi del vettore *bow*. Chiameremo *nbow* (*normalized bag of words*) il nuovo vettore: 
 $$

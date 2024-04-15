@@ -6,7 +6,7 @@
 
 I neuroni sono le più importanti cellule del sistema nervoso. Le connessioni sinaptiche (o sinapsi) agiscono come porte di collegamento per il passaggio dell'informazione tra neuroni. I *dendriti* sono fibre minori che si ramificano a partire dal corpo cellulare del neurone (detto *soma*). Attraverso le sinapsi, i dendriti raccolgono input da neuroni afferenti e li propagano verso il soma. L'*assone* è la fibra principale che parte dal soma e si allontana da esso per portare ad altri neuroni (anche distanti) l'output. 
 
-![image-20201227155631424](./_media/11._Reti_neurali__1.png)
+![image-20201227155631424](./chapters_media/11._Reti_neurali__1.png)
 
 Il passaggio delle informazioni attraverso le sinapsi avviene con processi elettro-chimici: il neurone presinaptico libera delle sostanze, chiamate neurotrasmettitori, che attraversano il breve gap sinaptico e sono captati da appositi recettori, detti *canali ionici*, sulla membrana del neurone postsinaptico. L'ingresso di ioni attraverso i canali ionici determina la formazione di una differenza di potenziale tra il corpo del neurone postsinaptico e l'esterno. Quando questo potenziale supera una certa soglia, detta di *attivazione*, si produce uno *spike* o *impulso*: il neurone propaga un breve segnale elettrico detto *potenziale d'azione* lungo il proprio assone: questo potenziale determina il rilascio di neurotrasmettitori dalle sinapsi dell'assone. 
 
@@ -24,7 +24,7 @@ Il primo modello di *neurone artificiale* fu progettato da McCulloch e Pitts: gl
 
 Un neurone artificiale moderno prende in ingresso $n$ input $(x_1, ..., x_n)$, pesati rispettivamente con $n$ pesi $(w_1,...,  w_n)$ che rappresentano l'efficacia delle connessioni sinaptiche dei dendriti. Tali valori varieranno durante il processo di apprendimento. Esiste un ulteriore peso, detto *costante di bias*, che si considera collegato ad un input fittizio con valore costante 1, questo peso è utile per tarare il punto di lavoro ottimale del neurone.   
 
-<img src="./_media/11._Reti_neurali__2.png" alt="image-20201227161707645" style="margin-top:20px" />
+<img src="./chapters_media/11._Reti_neurali__2.png" alt="image-20201227161707645" style="margin-top:20px" />
 
 Il neurone somma i prodotti tra gli input ed i corrispettivi pesi (compresa la costante di bias) e produce un valore $z$. Dopodiché, sulla base di una funzione di attivazione $\phi$ a cui viene passato il valore $z$, produce un valore di output.  
 
@@ -34,7 +34,7 @@ Il neurone somma i prodotti tra gli input ed i corrispettivi pesi (compresa la c
 
 Le reti neurali sono composte da gruppi di neuroni artificiali organizzati in livelli o *layer*. Tipicamente sono presenti un *layer di input*, un *layer di output*, ed uno o più layer intermedi o nascosti (*hidden*). Ogni layer contiene uno o più neuroni. 
 
-![image-20201227163011874](./_media/11._Reti_neurali__3.png)
+![image-20201227163011874](./chapters_media/11._Reti_neurali__3.png)
 
 Il layer di input è costituito da un vettore di $n$ valori $\bar x = (x_1, ..., x_n)$. Gli hidden layer sono costituiti da uno o più nodi che prendono in input uno o più valori provenienti dal layer precedente. Ogni nodo dell'hidden layer produrrà un output che verrà passato ad uno o più nodi del layer successivo. Il layer di output è costituito da uno o più nodi che restituiscono in output un valore. Il termine **deep neural network** indica una rete formata da molti layer nascosti.
 
@@ -56,7 +56,7 @@ Una rete neurale in cui ogni nodo di un certo layer riceve tutti gli output del 
 * Connessione *pooled*: i nodi di un layer sono partizionati in $k$ cluster. Il layer successivo, chiamato pooled layer, sarà formato da $k$ nodi, uno per ogni cluster. Il nodo associato al cluster $C_i$ riceverà tutti e soli gli output dei nodi del layer precedente appartenenti al cluster $C_i$. 
 * Connessione *convolutional*: i nodi di ogni layer sono visti come se fossero disposti su una griglia. Il nodo di coordinate $(i,j)$ riceve tutti e soli gli input dei nodi del layer precedente che si trovano in una regione piccola della griglia intorno al punto $(i,j)$ (vediamo una immagine che rappresenti cosa si intende per convoluzione). 
 
-![image-20201227170855066](./_media/11._Reti_neurali__4.png)
+![image-20201227170855066](./chapters_media/11._Reti_neurali__4.png)
 
 ### 1.3 Explanable AI
 
@@ -91,7 +91,7 @@ La progettazione di una rete neurale è per lo più uno studio empirico, fatto d
 
 
 
-<img src="./_media/11._Reti_neurali__5.png" alt="image-20201227172508885" style="margin-top:5px" />
+<img src="./chapters_media/11._Reti_neurali__5.png" alt="image-20201227172508885" style="margin-top:5px" />
 
 
 
@@ -132,7 +132,7 @@ $$
 
 La derivata della funzione unit step function $H(z)$ è notoriamente la funzione [*Delta di Dirac*](https://it.wikipedia.org/wiki/Delta_di_Dirac) $\delta(z)$. Quest'ultima satura a 0 per $z \ne 0$ ed esplode ad $\infty$ quando $z = 0$, per cui non rispetta $\frac 2 3$ delle proprietà desiderate e non è una buona scelta per una deep neural network. 
 
-![image-20201228111621751](./_media/11._Reti_neurali__7.png)
+![image-20201228111621751](./chapters_media/11._Reti_neurali__7.png)
 
 Può essere utilizzata per costruire un classificatore discriminativo binario o multi-classe. Il ***Perceptron*** è un esempio di classificatore binario, con un solo nodo nell'output layer che restituisce 1 se un oggetto è di una classe, 0 se è dell'altra. Per ottenere un classificatore discriminativo multi-classe occorre creare nell'output layer un percettrone per ogni classe da riconoscere. La rete neurale produrrà in output un vettore binario $\bar y = (y_1, ..., y_n)$ con un solo valore $y_i$ pari ad 1, che determinerà la classe finale, e tutti gli altri posti a 0. Uno o più hidden layer sono necessari per catturare pattern specifici di ciascuna classe al fine di guidare l'output layer ad identificare la classe corretta. 
 
@@ -146,7 +146,7 @@ $$
 $$
 La funzione assume valore $\frac 1 2$ per $x = 0$; quando $x \to + \infty$ la funzione $\sigma(x) \to 1$, mentre quando $x \to - \infty$ la funzione $\sigma(x) \to 0$.
 
-![image-20201228111638682](./_media/11._Reti_neurali__8.png)
+![image-20201228111638682](./chapters_media/11._Reti_neurali__8.png)
 
 Dal grafico osserviamo la somiglianza con la funzione unit-step. La differenza chiave sta nell'approccio della funzione tendendo allo zero: l'andamento è graduale anziché diretto. Dato un vettore di valori $\bar x = (x_1, ..., x_n)$, la funzione logistica è applicata su ognuna delle componenti: 
 $$
@@ -170,7 +170,7 @@ La tangente iperbolica risulta legata alla funzione logistica dalla seguente rel
 $$
 \tanh(x) = 2\sigma(2x) - 1
 $$
-<img src="./_media/11._Reti_neurali__9.png" alt="image-20201228105249139" style="margin:20px" />
+<img src="./chapters_media/11._Reti_neurali__9.png" alt="image-20201228105249139" style="margin:20px" />
 
 In altre parole, la tangente iperbolica è una versione scalata e traslata della funzione logistica. Essa ha valori compresi tra -1 ed 1 ed è simmetrica rispetto all'asse $y$. Gode delle stesse proprietà enunciate per la funzione logistica. 
 
@@ -206,7 +206,7 @@ x \text { if } x \ge 0 \\
 $$
 Rappresentabile con il seguente grafico: 
 
-![image-20201228113317798](./_media/11._Reti_neurali__10.png)
+![image-20201228113317798](./chapters_media/11._Reti_neurali__10.png)
 
 La funzione ReLU non satura mai per valori di $x$ positivi. Nella pratica, le reti neurali che utilizzano ReLU offrono uno speed-up significativo nella fase di training rispetto alle funzioni sigmoidee. Sia il calcolo della funzione che della sua derivata sono molto semplici e veloci da effettuare poiché non è richiesta l'esponenziazione. ReLU soffre di problemi di saturazione della sua derivata quando $x$ è negativo. 
 
@@ -251,7 +251,7 @@ L_{\delta}(\hat y, y) = \begin {cases}
 $$
 dove $\delta$ è una costante. La Huber loss è in parte definita come la squared error loss (per valori minori di $\delta$). Supponendo $\delta = 1$, osserviamo le due funzioni a confronto in funzione al valore ($\hat y - y$):
 
-<img src="./_media/11._Reti_neurali__11.png" alt="image-20201228120516439" style="margin:20px;" />
+<img src="./chapters_media/11._Reti_neurali__11.png" alt="image-20201228120516439" style="margin:20px;" />
 
 La Huber loss penalizza di meno le differenze tra i valori reali e quelli predetti, mentre la squared error loss tende all'infinito anche con errori relativamente piccoli. La variante Huber loss protegge il processo di learning nel caso di outlier, dove la squared error segnalerebbe un errore molto grande. 
 
@@ -422,13 +422,13 @@ Sia $f: \R^n \to \R$ la funzione loss da minimizzare. Indichiamo con $W_t$ la ma
 
 Il metodo viene iterato sino a quando i valori del vettore non cambiano in maniera significativa. Analogo metodo per la matrice Jacobiana. Essendo basato su una scelta greedy, non garantisce l'individuazione di minimi assoluti, *per cui può convergere ad un minimo locale*. Il vettore $\bar{x}$ ottenuto dopo la convergenza dell'algoritmo contiene i parametri della rete che minimizzano la funzione loss. 
 
-<img src="./_media/11._Reti_neurali__12.png" alt="image-20201228170233733" style="margin:20px" />
+<img src="./chapters_media/11._Reti_neurali__12.png" alt="image-20201228170233733" style="margin:20px" />
 
 #### 4.3.2 Learning rate
 
 Il parametro $\eta$ (eta) è detto *learning rate* e determina la velocità con cui si desidera che il metodo converga al valore ottimale. Valori troppo bassi implicano che la convergenza richieda molte iterazioni. Dall'altra parte, valori molto alti possono causare grandi oscillazioni nei valori dei parametri della rete, impedendo di arrivare a convergenza. Un metodo per trovare il learning rate ottimale consiste nel partire da un valore alto di $\eta$ e ad ogni passo moltiplicare $\eta$ per un fattore $\beta$ (con $0 < \beta < 1$) fino ad ottenere un valore di $\eta$ che porti a convergenza. 
 
-<img src="./_media/11._Reti_neurali__13.png" alt="image-20201228170804249" style="margin:20px;" />
+<img src="./chapters_media/11._Reti_neurali__13.png" alt="image-20201228170804249" style="margin:20px;" />
 
 
 
@@ -493,7 +493,7 @@ Ci riferiremo a $J$ con il nome di *objective function* o *funzione loss regolar
 
 Un grafo computazionale è un grafo aciclico diretto (DAG) che permette di visualizzare il flusso di dati di una rete neurale. Ogni nodo può avere due forme: un nodo quadrato indica un valore (tensore di dimensione arbitraria), mentre un nodo circolare indica una operazione. La direzione indica che il nodo mittente è operando del nodo destinatario, o che il nodo destinatario è output del nodo mittente. Visualizziamo il grafo computazionale della rete neurale descritta dalla forward propagation: 
 
-![image-20201231172423431](./_media/11._Reti_neurali__14.png)
+![image-20201231172423431](./chapters_media/11._Reti_neurali__14.png)
 
 
 
@@ -626,7 +626,7 @@ Nella pratica si osservano comportamenti diversi della funzione di loss sul trai
 
 Il rischio che si corre con l'early stopping è quello di produrre overfitting sul test set. Per evitare ciò si può costruire un validation set indipendente dai primi due. Si effettua l'early stopping osservando l'andamento dalla funzione loss sul training set e sul validation set. Si ferma il processo quando, mentre la loss sul training  set decresce, sul validation set comincia a crescere.  
 
-<img src="./_media/11._Reti_neurali__15.png" alt="image-20210102111816450" style="margin-top:20px" />
+<img src="./chapters_media/11._Reti_neurali__15.png" alt="image-20210102111816450" style="margin-top:20px" />
 
 
 
@@ -644,19 +644,19 @@ L'accuratezza delle reti neurali è proporzionale alla quantità di dati nel tra
 
 Una **rete neurale feed-forward** ("rete neurale con flusso in avanti") o **rete feed-forward** è una rete neurale artificiale dove le connessioni tra le unità non formano cicli, differenziandosi  dalle reti neurali ricorrenti. Questo tipo di rete neurale fu la prima e più semplice tra quelle messe a punto. In questa rete neurale le  informazioni si muovono solo in una direzione, avanti, rispetto a nodi  d'ingresso, attraverso nodi nascosti (se esistenti) fino ai nodi  d'uscita. Nella rete non ci sono cicli. Le reti feed-forward non hanno  memoria di input avvenuti a tempi precedenti, per cui l'output è  determinato solamente dall'attuale input.
 
-![](./_media/11._Reti_neurali__16.png)
+![](./chapters_media/11._Reti_neurali__16.png)
 
 ### 5.2 Convolutional Neural Networks (CNN)
 
 Una *rete neurale convoluzionale* (**CNN** o **ConvNet** dall'inglese *convolutional neural network*) è un tipo di rete neurale artificiale feed-forward in cui il pattern di connettività tra i neuroni è ispirato  dall'organizzazione della corteccia visiva animale, i cui neuroni  individuali della retina (fotorecettori) sono disposti in layer. Hanno diverse applicazioni nel riconoscimento di immagini e video, nei sistemi di raccomandazione, nell'elaborazione del linguaggio naturale e, recentemente, in bioinformatica.
 
-![image-20210107201247037](./_media/11._Reti_neurali__17.png)
+![image-20210107201247037](./chapters_media/11._Reti_neurali__17.png)
 
 Una rete neurale convoluzionale contiene uno o più layer convoluzionali. I nodi all'interno di un layer convoluzionale condividono gli stessi pesi per gli input. Generalmente si alternano i layer convoluzionali a dei layer pooled (o a volte densi) con un numero di nodi progressivamente minore. 
 
 Il primo layer coglie le informazioni che rappresentano i pixel essenziali delle immagini, ovvero i contorni. Lo schema di riconoscimento dei contorni è sempre lo stesso e non dipende dal punto in cui viene osservato un contorno (in analogia col fatto che in una CNN i nodi dello stesso layer condividono i pesi degli input). I successivi layer della retina combinano i risultati dei precedenti layer per riconoscere strutture via via più complesse (es. regioni dello stesso colore e infine volti e oggetti).
 
-![](./_media/11._Reti_neurali__18.png)
+![](./chapters_media/11._Reti_neurali__18.png)
 
 
 
@@ -674,7 +674,7 @@ Se anziché considerare il vertice in alto a sinistra si considerasse il centro,
 
 A seconda delle dimensioni della matrice di input ricevuta, la matrice di output prodotta potrebbe avere dimensioni inferiori anche con stride pari ad 1.Nell'esempio sottostante, partendo dai pixel nell'angolo in basso a destra dell'input potrebbe essere impossibile costruire un quadrato di dimensione $f \times f$. Per ottenere un output delle stesse dimensioni dell'input, una tecnica semplice consiste nell'aggiungere alla matrice di input righe e colonne di $0$. Questa tecnica prende il nome di *zero padding*. 
 
- ![image-20210108133428369](./_media/11._Reti_neurali__19.png)
+ ![image-20210108133428369](./chapters_media/11._Reti_neurali__19.png)
 
 
 
@@ -690,7 +690,7 @@ In un'immagine a colori l'input è costituito da 3 canali (RGB). Ogni canale è 
 
 
 
-![VGG16 - Convolutional Network for Classification and Detection](./_media/11._Reti_neurali__20.png)
+![VGG16 - Convolutional Network for Classification and Detection](./chapters_media/11._Reti_neurali__20.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -709,7 +709,7 @@ I layer ricorrenti possono essere utilizzati come memoria dello stato, per ricor
 Definiamo l'input e l'output di un layer ricorrente come due sequenze $\bar{x} = (\bar{x}_1, \dots, \bar{x}_n)$ e $\bar{y} = (\bar{y}_1, \dots, \bar{y}_n)$.
 I pesi condivisi dai nodi del layer ricorrente sono rappresentati da 3 matrici $U, V, W$ come nella figura sottostante. Sia $\bar{s}_t$ uno stato nascosto che funziona da memoria delle informazioni rappresentate dalla sottosequenza $\bar{x}_1, \dots, \bar{x}_t$ osservata sino al tempo $t$. 
 
-<img src="./_media/11._Reti_neurali__21.png" alt="image-20210108143217529" style="margin-top:20px; margin-bottom:20px;" />
+<img src="./chapters_media/11._Reti_neurali__21.png" alt="image-20210108143217529" style="margin-top:20px; margin-bottom:20px;" />
 
 Lo stato nascosto $\bar{s}_0$ è definito come vettore di zeri. Lo stato nascosto $\bar s_t$ al tempo $t$ si ottiene applicando una funzione di attivazione non lineare (es. sigmoid, tanh) considerando l'input al tempo $t$ e lo stato nascosto $\bar{s}_{t-1}$ al tempo $t-1$: 
 $$
@@ -756,7 +756,7 @@ La tecnica *Long Short-Term Memory* (LSTM) è un raffinamento delle RNN che affr
 
 Per realizzare tali proprietà si necessita di una *memoria a lungo termine* (con informazioni sulla parte di sequenza già analizzata) e di una *memoria corrente* (con informazioni di immediata rilevanza).  
 
-<img src="/home/charlemagne/Scrivania/DiveIntoDataMining/_media/11._Reti_neurali__23.png" alt="image-20210108174739895" style="margin-top:10px" />
+<img src="/home/charlemagne/Scrivania/DiveIntoDataMining/chapters_media/11._Reti_neurali__23.png" alt="image-20210108174739895" style="margin-top:10px" />
 
 
 

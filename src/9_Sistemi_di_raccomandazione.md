@@ -27,7 +27,7 @@ Lo spazio limitato dei negozi fisici spinge i negozianti all'esposizione della m
 
 Gli articoli sono generalmente caratterizzati da una distribuzione a coda lunga per la quale solo un piccolo insieme di articoli ha maggiore popolarità, mentre un ampio insieme di articoli costituisce una nicchia, che spesso non è nemmeno conosciuta dai clienti. Mentre i negozi fisici tendono a utilizzare tutto lo spazio sugli scaffali per posizionare gli articoli più popolari, i negozi digitali non soffrono di tale problema e possono spingere verso una maggiore variabilità dei contenuti. Di conseguenza, c'è un insieme di prodotti poco popolari che si possono trovare solo online, non convenienti da vendere in un negozio fisico. 
 
-<img src="./_media/10._Sistemi_di_raccomandazione__1.png" alt="image-20201226101559832" style="margin-top:40px; margin-bottom:40px" />
+<img src="./chapters_media/10._Sistemi_di_raccomandazione__1.png" alt="image-20201226101559832" style="margin-top:40px; margin-bottom:40px" />
 
 I rivenditori digitali possono facilmente esplorare la distribuzione a coda lunga perché non hanno alcun vincolo fisico (spazio sugli scaffali), ma come fanno a far conoscere agli utenti i prodotti di cui non sono a conoscenza perché non sono abbastanza popolari? Lo strumento più ambito a questo scopo è il sistema di raccomandazione, che può guidare gli utenti da un item popolare ad uno meno popolare con caratteristiche simili.
 
@@ -59,7 +59,7 @@ Un sistema di raccomandazione si basa su un insieme di preferenze conosciute esp
 
 Essa rappresenta la conoscenza esistente del sistema sulla relazione tra utenti ed articoli ed è perlopiù *sparsa* poiché un generico utente *recensisce* / *interagisce con* pochi item. Un sistema di raccomandazione vuole predire i valori di rating inesistenti della matrice. 
 
-![image-20210423113003617](_media/10._Sistemi_di_raccomandazione__2.png)
+![image-20210423113003617](chapters_media/10._Sistemi_di_raccomandazione__2.png)
 
 
 
@@ -140,7 +140,7 @@ $$
 $$
 Dove $I_j = f(s_j)$ è il profilo dell'item $s_j$. Così facendo otterremo un vettore di dimensione $k$, ovvero il profilo dell'utente. Vediamo un esempio: 
 
-<img src="./_media/10._Sistemi_di_raccomandazione__3.png" alt="image-20201226130022020" style="margin:20px;" />
+<img src="./chapters_media/10._Sistemi_di_raccomandazione__3.png" alt="image-20201226130022020" style="margin:20px;" />
 
 Il profilo dell'utente $A$ verrà calcolato secondo la formula, per cui: 
 $$
@@ -217,11 +217,11 @@ Applicare la similarità del coseno direttamente sulle righe della matrice intro
 
 Esempio: ipotizziamo di avere la seguente matrice sparsa di utilità. Ipotizziamo di voler stimare la valutazione dell'utente 4 rispetto all'item 4. Consideriamo gli utenti che hanno già valutato l'item 4, che risultano essere gli utenti 2,3 e 5. 
 
-<img src="./_media/10._Sistemi_di_raccomandazione__4.png" alt="image-20201226154816521" style="margin-top:20px" />
+<img src="./chapters_media/10._Sistemi_di_raccomandazione__4.png" alt="image-20201226154816521" style="margin-top:20px" />
 
 Normalizziamo i profili degli utenti 2, 3, 4 e 5 sottraendo la media degli item valutati a tutte le valutazioni e poniamo a 0 (valutazione neutra) tutti gli item non valutati. 
 
-<img src="./_media/10._Sistemi_di_raccomandazione__5.png" alt="image-20201226155003367" style="margin-top:20px; margin-bottom:20px" />
+<img src="./chapters_media/10._Sistemi_di_raccomandazione__5.png" alt="image-20201226155003367" style="margin-top:20px; margin-bottom:20px" />
 
 Calcoliamo la similarità del coseno tra l'utente 4 e gli utenti 2,3 e 5 e, supponendo che $N=2$, otteniamo che i due utenti più simili sono 2 (con 0.47) e 5 (con 0.46). Calcoliamo la media pesata dei rating di 2 e 5 sull'item 4, ovvero la predizione della valutazione dell'utente 4 rispetto all'item 4: 
 $$
@@ -352,7 +352,7 @@ Trovare la decomposizione SVD di una matrice consiste nel trovare autovettori ed
 
 Sia $M$ una matrice $2 \times 2$. Nel piano $\R^2$ consideriamo un cerchio di raggio unitario con i due vettori unitari canonici (basi standard). La SVD ruota e trasforma il cerchio in un ellisse i cui semiassi hanno lunghezze pari ai valori singolari non nulli di $M$. 
 
-![image-20201226174001138](./_media/10._Sistemi_di_raccomandazione__6.png)
+![image-20201226174001138](./chapters_media/10._Sistemi_di_raccomandazione__6.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -391,23 +391,23 @@ Usando SVD possiamo calcolare le predizioni di un utente per tutti gli item medi
 
 Consideriamo un nuovo utente $x$: $x$ ha visto solo il film Matrix, valutandolo 4 stelle su 5. Supponiamo di avere la matrice di utilità in figura. Il profilo dell'utente $x$ è $[4, 0, 0, 0, 0]$. Vogliamo predire il rating di $x$ sugli altri film. 
 
-![image-20201226181530175](./_media/10._Sistemi_di_raccomandazione__7.png)
+![image-20201226181530175](./chapters_media/10._Sistemi_di_raccomandazione__7.png)
 
 Proseguiamo calcolando il rango della matrice $7 \times 5$ attraverso uno dei metodi di calcolo del rango (i.e. criterio dei minori, teorema di Kronecker o degli orlati, eliminazione gaussiana). Il rango della matrice $\rho(M)$ risulta essere 2. Quindi lo spazio delle categorie è formato da due sole categorie (in questo caso Fantascienza e Amore). Calcoliamo gli autovettori ed autovalori delle matrici $MM^T$ ed $M^TM$ e costruiamo la decomposizione: 
 
-![image-20201226182527907](./_media/10._Sistemi_di_raccomandazione__8.png)
+![image-20201226182527907](./chapters_media/10._Sistemi_di_raccomandazione__8.png)
 
 Mappiamo adesso $X = [4, 0, 0, 0 ,0]$ nello spazio delle categorie attraverso il prodotto $Y = XV$: 
 
-![image-20201226182646614](./_media/10._Sistemi_di_raccomandazione__9.png)
+![image-20201226182646614](./chapters_media/10._Sistemi_di_raccomandazione__9.png)
 
 E ri-mappiamo $Y$ nello spazio dei film attraverso il prodotto $R = YV^T$: 
 
-![image-20201226182820224](./_media/10._Sistemi_di_raccomandazione__10.png)
+![image-20201226182820224](./chapters_media/10._Sistemi_di_raccomandazione__10.png)
 
 Con il seguente risultato: 
 
-![image-20201226182901144](./_media/10._Sistemi_di_raccomandazione__11.png)
+![image-20201226182901144](./chapters_media/10._Sistemi_di_raccomandazione__11.png)
 
 
 

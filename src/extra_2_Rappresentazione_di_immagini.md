@@ -28,7 +28,7 @@ e si calcola l'istogramma degli orientamenti degli edge dell'intera patch. Per r
 
 Essendoci 8 orientamenti principali (quindi 8 bin), questa rappresentazione mappa ogni patch dell'immagine in un vettore di dimensione 8. Patch simili avranno istogrammi simili, viceversa per patch differenti. 
 
-![image-20210105101831651](./_media/Extra_2_-_Rappresentazione_di_immagini__1.png)
+![image-20210105101831651](./chapters_media/Extra_2_-_Rappresentazione_di_immagini__1.png)
 
 
 
@@ -42,7 +42,7 @@ Il metodo precedente è limitato quando si presentano strutture complesse. Un me
 
 Il descrittore SIFT permette di mappare una patch in un vettore di dimensione 128, molto più espressivo rispetto ad un singolo istogramma. 
 
-<img src="./_media/Extra_2_-_Rappresentazione_di_immagini__2.png" alt="image-20210105093955800" style="border:solid; margin-top:40px;" />
+<img src="./chapters_media/Extra_2_-_Rappresentazione_di_immagini__2.png" alt="image-20210105093955800" style="border:solid; margin-top:40px;" />
 
 
 

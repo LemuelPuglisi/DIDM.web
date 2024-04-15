@@ -10,7 +10,7 @@ $$
 $$
 Ovvero se ad ogni arco tra due nodi $u$ e $v$ appartenenti a $G_1$, esiste un arco tra i nodi $f(u)$ ed $f(v)$ appartenenti al grafo $G_2$. Tale funzione $f$ è *biiettiva* e prende il nome di *mapping*. In altri termini, è possibile ri-etichettare i nodi di $G_1$ come nodi di $G_2$, mantenendo la relazione tra gli archi di $G_1$ e quelli corrispondenti di $G_2$. 
 
-![image-20201216150932278](./_media/7._Graph_matching__1.png)
+![image-20201216150932278](./chapters_media/7._Graph_matching__1.png)
 
 
 
@@ -22,7 +22,7 @@ $$
 $$
 La funzione $f$ prende ancora il nome di *mapping* e, dal momento in cui $f$ è solamente *iniettiva*, non è necessario che tutti i nodi di $G_2$ siano mappati. Al contrario, tutti i nodi del sottografo query $G_1$ lo saranno. 
 
-![image-20201216150946222](./_media/7._Graph_matching__2.png)
+![image-20201216150946222](./chapters_media/7._Graph_matching__2.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -30,11 +30,11 @@ La funzione $f$ prende ancora il nome di *mapping* e, dal momento in cui $f$ è 
 
 La soluzione del graph matching (o subgraph matching) non è univoca, in generale possono esistere varie funzioni di mapping $f$. 
 
-![image-20201216151353088](./_media/7._Graph_matching__3.png)
+![image-20201216151353088](./chapters_media/7._Graph_matching__3.png)
 
 L'isomorfismo tra un grafo $G$ e se stesso è detto automorfismo di $G$. Un grafo può avere più automorfismi: 
 
-![image-20201216151434118](./_media/7._Graph_matching__4.png)
+![image-20201216151434118](./chapters_media/7._Graph_matching__4.png)
 
 
 
@@ -54,11 +54,11 @@ Per quanto concerne il graph matching, alcuni dei più famosi algoritmi sviluppa
 
 Tutti gli algoritmi di subgraph matching hanno una procedura simile: esplorano un particolare albero di ricerca. Ipotizziamo che $G_a$ sia il grafo query e $G_b$ sia il grafo target: 
 
-![image-20201216154004172](./_media/7._Graph_matching__5.png)
+![image-20201216154004172](./chapters_media/7._Graph_matching__5.png)
 
 La root dell'albero di ricerca indica che nessun mapping è stato effettuato. Partiamo da un nodo qualsiasi di $G_a$, ad esempio 1: possiamo mappare il nodo 1 con uno qualsiasi dei quattro nodi di $G_b$. Per cui la root avrà 4 rami uscenti, ognuno di essi considera un diverso mapping del primo nodo. Per ognuno di questi nodi viene scelto un secondo nodo che non sia ancora mappato e vengono fatte le stesse considerazioni. L'albero si estende sino a che per ogni ramo tutti i nodi di $G_a$ siano stati mappati. Ogni cammino che porta dalla radice ad una foglia indica una diversa mappatura, non necessariamente valida (nell'esempio solo le soluzioni evidenziate con un rettangolo sono valide). 
 
-<img src="./_media/7._Graph_matching__6.png" alt="image-20201216154620229" style="zoom: 67%;" />
+<img src="./chapters_media/7._Graph_matching__6.png" alt="image-20201216154620229" style="zoom: 67%;" />
 
 
 
@@ -92,7 +92,7 @@ L'algoritmo di Ullmann utilizza il grado del nodo per fare look-ahead e backtrac
 
 Supponiamo di dover fare graph matching tra i grafi in figura. Osservando il cammino più a sinistra (leftmost) notiamo che dopo aver mappato il nodo 2 con il nodo $b$, il primo ramo sottostante suggerisce di mappare il nodo 3 con il nodo $c$. Tuttavia, basta osservare che il nodo 3 ha un grado maggiore (3) del nodo c (2), quindi il cammino non potrà portare ad una soluzione. 
 
-![image-20201216161614281](./_media/7._Graph_matching__7.png)
+![image-20201216161614281](./chapters_media/7._Graph_matching__7.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -282,7 +282,7 @@ Si rappresenta il grafo mediante un insieme di attributi (o feature) $F$ e prima
 
 Ipotizziamo di indicizzare i grafi per cammini di lunghezza 2 e di dover confrontare i due grafi sottostanti. Il grafo query ha molti più cammini di lunghezza 2 rispetto al grafo proveniente dalla base di dati. Inoltre, essendo etichettati, è possibile effettuare un confronto preciso dei protagonisti del cammino. Il grafo del database verrà scartato. 
 
-<img src="./_media/7._Graph_matching__8.png" alt="image-20201218171058288" style="margin-top:20px" />
+<img src="./chapters_media/7._Graph_matching__8.png" alt="image-20201218171058288" style="margin-top:20px" />
 
 
 
@@ -314,7 +314,7 @@ L'indicizzazione inversa consiste nell'indicizzare le feature estratte anziché 
 
 L'algoritmo SING, acronimo per *subgraph search in non-homogeneous graphs*, si bassa sull'idea che, per migliorare l'efficacia dell'indice, è possibile associare ad ogni feature non solo il numero di volte in cui esso è presente nel grafo, ma anche il nodo da cui parte. Consideriamo il seguente esempio: 
 
-![image-20201218172420784](./_media/7._Graph_matching__9.png)
+![image-20201218172420784](./chapters_media/7._Graph_matching__9.png)
 
 
 

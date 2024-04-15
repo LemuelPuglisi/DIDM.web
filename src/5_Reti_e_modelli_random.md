@@ -32,7 +32,7 @@ Un grafo bipartito è un grafo in cui i nodi costituiscono due insiemi disgiunti
 
 A partire da una rete bipartita è possibile generare due reti chiamate *proiezioni del grafo*, una rispetto all'insieme $U$ e l'altra rispetto all'insieme $V$. La proiezione rispetto ad $U$ è un grafo i cui nodi sono i nodi di $U$ ed un arco collega due nodi $u_1, u_2 \in U$ se e solo se $u_1, u_2$ hanno almeno un adiacente in comune nel grafo bipartito. Definizione analoga per la proiezione rispetto a $V$.  
 
-<img src="./_media/6._Reti_e_modelli_random__2.png" alt="image-20201213180548244" style="zoom:67%;" />
+<img src="./chapters_media/6._Reti_e_modelli_random__2.png" alt="image-20201213180548244" style="zoom:67%;" />
 
 
 
@@ -214,7 +214,7 @@ La centralità è una misura dell'importanza di un nodo nella rete. Esistono div
 
 La centralità basata sul grado è la misura più semplice di centralità. La degree centrality è semplicemente il grado del nodo. Più alto è il grado del nodo e più è importante. 
 
-![image-20201213193402633](./_media/6._Reti_e_modelli_random__10.png)
+![image-20201213193402633](./chapters_media/6._Reti_e_modelli_random__10.png)
 
 #### 1.4.2 Betweenness centrality 
 
@@ -230,7 +230,7 @@ C'_B = C_B / [\frac{(n-1)(n-2)}{2}]
 $$
 Dove al denominatore si ha il coefficiente binomiale $\binom{n-1}{2}$ che specifica il numero di cammini possibili tra gli $n-1$ nodi restanti nella rete. In base a questa definizione, un nodo è centrale se si trova nel mezzo di molti cammini di comunicazione tra nodi del grafo. 
 
-![image-20201213194033180](./_media/6._Reti_e_modelli_random__11.png)
+![image-20201213194033180](./chapters_media/6._Reti_e_modelli_random__11.png)
 
 #### 1.4.3 Closeness centrality 
 
@@ -238,7 +238,7 @@ La closeness centrality si basa sulla vicinanza media di un nodo rispetto a tutt
 
 La closeness centrality di un nodo $v$ è una misura della velocità media con cui una informazione, partendo da $v$, può raggiungere tutti gli altri nodi del grafo. 
 
-![image-20201213194359233](./_media/6._Reti_e_modelli_random__12.png)
+![image-20201213194359233](./chapters_media/6._Reti_e_modelli_random__12.png)
 
 #### 1.4.4 PageRank centrality
 
@@ -256,7 +256,7 @@ Dove $B_u$ è l'insieme dei nodi che hanno $u$ come adiacente e $k_v$ è il grad
 
 Consideriamo un semplice esempio di rete diretta costituita da 4 nodi $V=\{A, B, C, D\}$. Immaginiamo che ogni nodo abbia a disposizione un tesoro iniziale, uguale per tutti. Se il tesoro iniziale complessivo è pari ad 1, ogni nodo avrà un tesoro iniziale pari a 0.25. 
 
-![image-20201214162310216](./_media/6._Reti_e_modelli_random__13.png)
+![image-20201214162310216](./chapters_media/6._Reti_e_modelli_random__13.png)
 
 Ogni nodo deve cedere il proprio tesoro in parti uguali tra i suoi adiacenti. Calcoliamo ad esempio il tesoretto di $B$: 
 
@@ -270,7 +270,7 @@ PR(B) = \frac {PR(A)} {k_A} + \frac {PR(D)} {k_D} = 0.125 + 0.125 = 0.25
 $$
 Con lo stesso principio possiamo calcolare il nuovo page rank degli altri 3 nodi. Alla fine del primo round $C$ è l'unico nodo che si ritrova con un tesoro maggiore. 
 
-![image-20201214162826849](./_media/6._Reti_e_modelli_random__14.png)
+![image-20201214162826849](./chapters_media/6._Reti_e_modelli_random__14.png)
 
 Iterando questo scambio di tesori si otterrà una situazione di equilibrio in cui il tesoro di ogni nodo non varierà più in maniera significativa. A tempo di convergenza si conosce il valore di centralità per ogni nodo. 
 
@@ -326,7 +326,7 @@ Per $N \gg \langle k \rangle$ la distribuzione binomiale è ben approssimata da 
 $$
 p_k = \exp(-\langle k \rangle \frac{\langle k \rangle^k}{k! } )
 $$
-![image-20201214170713929](./_media/6._Reti_e_modelli_random__15.png)
+![image-20201214170713929](./chapters_media/6._Reti_e_modelli_random__15.png)
 
 Dal momento che la distribuzione dei gradi è binomiale, in una rete random i nodi hanno perlopiù lo stesso grado. In reti random grandi, in cui la distribuzione è approssimativamente di Poisson, la maggior parte dei nodi ha un grado più o meno pari al grado medio $\langle k \rangle$. Pochi nodi hanno un grado diverso dalla media. 
 
@@ -400,7 +400,7 @@ La **distanza media** tra due nodi nella rete MSN è $6.6$; il modello random ri
 
 L'unica proprietà delle reti reali che la rete random riesce a cogliere abbastanza bene è quella denominata "small world", legata alla distanza media tra i nodi (anche se spesso nelle reti reali si osserva una distanza ancora più bassa). Il fenomeno small world afferma che anche due individui che vivono in zone molto lontane sulla Terra possono essere connessi tra loro attraverso una catena molto piccola di conoscenze. Tale fenomeno è conosciuto anche con il termine "*sei gradi di separazione*" (*six degrees of separation*). La teoria dei sei gradi di separazione fu formulata per la prima volta nel '29 dallo scrittore ungherese Frigyes Karinthi, ma il termine "sei gradi di separazione" fu coniato in seguito ad un famoso esperimento condotto nel '67 da uno psicologo americano, Stanley Milgram. 
 
-![image-20201214174929548](./_media/6._Reti_e_modelli_random__18.png)
+![image-20201214174929548](./chapters_media/6._Reti_e_modelli_random__18.png)
 
 
 
@@ -430,7 +430,7 @@ Anche in questo caso, la distribuzione dei gradi che si ottiene è simile ad una
 
 Sia $n$ il numero di nodi della rete da generare, $p$ il parametro di rewiring e $d$ un intero $d \ge 1$, siano $1, 2, \dots, n$ gli identificativi dei nodi della rete. Si collega ciascun nodo $i$ ai nodi $i+1, i+2, \dots, i+d$. Al termine di questo passo si ottiene un grafo *regolare*. Per ciascun arco, si scambia il nodo destinazione con un altro nodo random della rete con probabilità $p$. 
 
-![image-20201214180922899](./_media/6._Reti_e_modelli_random__19.png)
+![image-20201214180922899](./chapters_media/6._Reti_e_modelli_random__19.png)
 
 Plottando l'andamento del coefficiente di clustering e della distanza media tra nodi al variare del parametro $p$, notiamo che il coefficiente di clustering decresce lentamente, mentre la distanza decresce più velocemente. È possibile travare una regione in cui il coefficiente di clustering sia ancora alto, mentre la distanza sia piccola (come indicato in foto). Il modello di Watts-Strogatz riesce a catturare due delle proprietà delle reti reali, tuttavia non riesce a riprodurre la distribuzione dei gradi. 
 
@@ -502,7 +502,7 @@ $$
 $$
 Nelle reti reali si osserva generalmente $2 < \gamma < 3$. Vediamo a confronto la distribuzione power-law e quella di Poisson. Si osservi che, in scala log-log (b) la distribuzione power-law assume la forma di una retta di pendenza $-\gamma$.
 
-<img src="./_media/6._Reti_e_modelli_random__21.png" alt="image-20201214182344170" style="zoom:80%; margin:30px" />
+<img src="./chapters_media/6._Reti_e_modelli_random__21.png" alt="image-20201214182344170" style="zoom:80%; margin:30px" />
 
 #### Studiare la legge di potenza in una rete reale
 
@@ -555,7 +555,7 @@ In una rete scale-free, in cui la distribuzione dei gradi è power-law, la varia
 
 La presenza di hub in una rete scale-free ha una conseguenza importante: rende in generale la rete più robusta ad attacchi o situazioni per cui uno o più collegamenti nella rete vengono meno. Se in una rete random un nodo qualsiasi viene giù o un collegamento si interrompe, l'intera rete potrebbe essere compromessa. I punti sensibili di una rete scale-free sono gli hub, che collegano la maggior parte dei nodi. 
 
-![image-20201214183951583](./_media/6._Reti_e_modelli_random__22.png)
+![image-20201214183951583](./chapters_media/6._Reti_e_modelli_random__22.png)
 
 
 

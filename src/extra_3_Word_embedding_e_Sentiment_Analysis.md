@@ -97,7 +97,7 @@ $$
 
 Si è scoperto che le relazioni semantiche tra parole vengono riflesse geometricamente nello spazio di rappresentazione. Ad esempio, la distinzione tra le parole "re" e "regina" o "fratello" e "sorella" è della stessa natura della distinzione più generale tra "uomo" e "donna". Matematicamente, ci aspettiamo che i vettori  differenza tra le parole sopracitate (rappresentate come word embedding) siano pressoché uguali.
 
-![image-20210106111537763](./_media/Extra_3_-_Word_embedding,_Sentiment_Analysis__1.png)
+![image-20210106111537763](./chapters_media/Extra_3_-_Word_embedding,_Sentiment_Analysis__1.png)
 
 Tale proprietà consente di applicare la matematica dei vettori di parole. Se il vettore differenza $w = v(woman) - v(man)$ è uguale al vettore differenza $w' = v(queen) - v(king) = w$ allora, conoscendo solo il vettore $w$ e partendo dal vettore $v(king)$ è possibile calcolare il vettore della parola "queen" come segue: 
 $$
@@ -131,7 +131,7 @@ x = \frac {z}{\sqrt{z^2 + \alpha}}
 $$
 Dove $\alpha = 15$. Il grafico sottostante visualizza gli effetti della normalizzazione. All'aumentare del valore assoluto di $x$ il sentimento totale converge a -1 o ad 1.
 
-![image-20210106225024672](./_media/Extra_3_-_Word_embedding,_Sentiment_Analysis__2.png)
+![image-20210106225024672](./chapters_media/Extra_3_-_Word_embedding,_Sentiment_Analysis__2.png)
 
 #### 2.2.1 Punteggiatura 
 

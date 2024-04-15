@@ -12,7 +12,7 @@ Tipicamente si conta il numero di grafi del database che contengono il sottograf
 
 Vediamo un esempio con soglia $\sigma = 3$:
 
-![image-20201221092846424](./_media/8._Graph_Mining__1.png)
+![image-20201221092846424](./chapters_media/8._Graph_Mining__1.png)
 
 Piuttosto che fare riferimento al *supporto*, che è un conteggio assoluto, spesso si utilizza la *frequenza*, che è invece un conteggio relativo. La frequenza di un sottografo $S$ in un database $D$ è il rapporto tra il supporto ed il numero di grafi nel database. La soglia minima $\sigma$ in questo caso sarà espressa come una percentuale. Un sottografo è frequente se è presente in almeno $\sigma$% grafi del database. 
 
@@ -51,7 +51,7 @@ Lo step è generalizzabile per $k \ge 3$, ed ogni sotto-passo ha un nome specifi
 
 Quando al generico passo $k$ si verifica che l'insieme di sottografi frequenti con $k$ nodi è vuoto, la computazione termina, ovvero non ci sono ulteriori sottografi frequenti. Quindi viene restituito l'insieme $O$ in output. 
 
-![image-20201221105306118](./_media/8._Graph_Mining__2.png)
+![image-20201221105306118](./chapters_media/8._Graph_Mining__2.png)
 
 
 
@@ -63,7 +63,7 @@ L'approccio descritto in precedenza è basato su una strategia in ampiezza, ovve
 
 Esiste anche un approccio alternativo che utilizza la strategia DFS (Depth-first search): si calcola il supporto di un sottografo candidato con $k- 1$ nodi e, se è frequente, si estende. Quindi si controlla il supporto del sottografo esteso e così via. L'approccio DFS richiede meno memoria, ma risulta meno efficace nel pruning. 
 
-<img src="./_media/8._Graph_Mining__3.png" alt="image-20201221110044089" style="margin:20px" />
+<img src="./chapters_media/8._Graph_Mining__3.png" alt="image-20201221110044089" style="margin:20px" />
 
 
 
@@ -73,7 +73,7 @@ Esiste anche un approccio alternativo che utilizza la strategia DFS (Depth-first
 
 Un sottografo candidato con $k+1$ nodi è ottenuto dall'unione di due sottografi con $k$ nodi frequenti. L'unione è possibile se e solo se i due sottografi hanno almeno un sottografo con $k-1$ nodi in comune, chiamato *core graph*. Nell'esempio osserviamo due possibili risultati: in uno dei due viene inserito un arco tra i due nodi esterni al core, mentre nell'altro no. 
 
-<img src="./_media/8._Graph_Mining__4.png" alt="image-20201221111044472" style="margin-top:15px" />
+<img src="./chapters_media/8._Graph_Mining__4.png" alt="image-20201221111044472" style="margin-top:15px" />
 
 <div style="page-break-after: always;"></div>
 
@@ -83,7 +83,7 @@ Un sottografo candidato con $k+1$ nodi è ottenuto dall'unione di due sottografi
 
 La generazione può essere fatta basandosi sugli archi. In tal caso, si aggiunge al grafo frequente un arco di un altro grafo frequente con lo stesso core. Eventualmente è possibile aggiungere, oltre l'arco, anche un nodo. Vediamo nell'esempio in figura che mentre il candidato 2 inserisce solo l'arco, il candidato 1 include anche il nodo. 
 
-<img src="./_media/8._Graph_Mining__5.png" alt="image-20201221112127054" style="margin-top:15px; margin-bottom:10px" />
+<img src="./chapters_media/8._Graph_Mining__5.png" alt="image-20201221112127054" style="margin-top:15px; margin-bottom:10px" />
 
 Una join tra due grafi può produrre più candidati per i seguenti motivi: 
 
@@ -92,7 +92,7 @@ Una join tra due grafi può produrre più candidati per i seguenti motivi:
 
 Inoltre lo stesso candidato può essere generato a partire da *join* diverse, per cui è necessario un successivo passo di pruning che elimini i candidati duplicati. 
 
-<img src="./_media/8._Graph_Mining__6.png" alt="image-20201221112802511" style="margin-top:30px" />
+<img src="./chapters_media/8._Graph_Mining__6.png" alt="image-20201221112802511" style="margin-top:30px" />
 
 <div style="page-break-after: always;"></div>
 
@@ -104,7 +104,7 @@ Un sottografo candidato con $k+1$ nodi è generato estendendo un sottografo freq
 
 L'aggiunta può essere effettuata in vari modi. Una tecnica per evitare la generazione di sottografi candidati ridondanti consiste  nell'effettuare l'estensione seguendo il cammino right-most di una visita DFS effettuata sul grafo: il nodo viene aggiunto *solo* a partire da nodi che risiedono nel cammino più a destra nell'albero di visita DFS del grafo da estendere. Anche tale estensione può essere fatta aggiungendo un arco anziché un nodo. Vediamo un esempio: 
 
-![image-20201221114334682](./_media/8._Graph_Mining__7.png)
+![image-20201221114334682](./chapters_media/8._Graph_Mining__7.png)
 
 L'albero in figura è prodotto da una visita DFS del grafo frequente. Il cammino evidenziato in nero è il cammino right-most. Nelle due immagini successive si mostra come sia possibile estendere il grafo tramite l'aggiunta di un arco, mentre nelle ultime tre viene aggiunto, in diverse parti del cammino destrorso, un nodo. 
 
@@ -114,7 +114,7 @@ L'albero in figura è prodotto da una visita DFS del grafo frequente. Il cammino
 
 La generazione dei candidati può portare ad avere sottografi ridondanti, ovvero *isomorfi*. Occorre una rappresentazione dei grafi che consenta di risolvere abilmente gli isomorfismi. Nella pratica, due rappresentazioni comun sono la *matrice di adiacenza* e le *liste di adiacenza*. Tuttavia, tali rappresentazioni non sono adatte ad identificare gli isomorfismi. Osserviamo un esempio di grafi isomorfi la cui matrice di adiacenza è differente: 
 
-![image-20201221115317898](./_media/8._Graph_Mining__8.png)
+![image-20201221115317898](./chapters_media/8._Graph_Mining__8.png)
 
 #### 1.7.1 Stringa di adiacenza
 
@@ -144,7 +144,7 @@ Vediamo come calcolare la significatività del sottografo frequente nel post-pro
 * Calcolare la probabilità $P(X \ge X_0)$ di osservare un supporto $X$ maggiore o uguale al supporto $X_0$ osservato nel database originale $D$. Chiamiamo tale probabilità *p-value*. 
 * Se il *p-value* è minore di una soglia $\alpha$ (tipicamente $\alpha = 0.05$), allora $S$ è significativo come sottografo frequente. 
 
-![image-20201221125211256](./_media/8._Graph_Mining__9.png)
+![image-20201221125211256](./chapters_media/8._Graph_Mining__9.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -308,21 +308,21 @@ Non resta altro che osservare come viene effettuata la join tra due sottografi $
 
 L'algoritmo FSG calcola la forma canonica di ogni sottografo a partire dalla matrice di adiacenza. Osserviamo un esempio per semplicità: 
 
-![image-20201221154451775](./_media/8._Graph_Mining__10.png)
+![image-20201221154451775](./chapters_media/8._Graph_Mining__10.png)
 
 Il primo step consiste nel partizionare ed ordinare i nodi del grafo in base al grado. I nodi $a, c, d$ hanno grado 1, mentre il nodo $b$ ha grado 3. Dividiamo quindi la matrice in due partizioni: 
 
-![image-20201221155110205](./_media/8._Graph_Mining__11.png)
+![image-20201221155110205](./chapters_media/8._Graph_Mining__11.png)
 
 I nodi con grado più alto hanno potenzialmente molti archi asseriti nella matrice. Se disponiamo gli elementi per grado in ordine crescente, allora la stringa di adiacenza risultante avrà la maggior parte degli elementi asseriti verso la fine. Ciò va fatto poiché l'obiettivo è quello di ottenere la forma canonica del sottografo, ovvero la stringa lessicograficamente più piccola. 
 
 Se il grafo è etichettato come quello in figura, allora a parità di grado è possibile partizionare ulteriormente l'insieme in base alla *etichetta* del nodo, disponendo prima le etichette più piccole. Nell'esempio, i nodi $a,c,d$ hanno rispettivamente etichette $v_0, v_1, v_0$. Disponiamo nella prima partizione i nodi $a, d$ di etichette $v_0$, e in una seconda partizione il nodo $c$ di etichetta $v_1$: 
 
-![image-20201221160315639](./_media/8._Graph_Mining__12.png)
+![image-20201221160315639](./chapters_media/8._Graph_Mining__12.png)
 
 Se in una partizione vi sono più di due nodi, vanno considerate le possibili stringhe di adiacenza date dalla variazione di posizione. Il partizionamento serve soprattutto a diminuire il numero di stringhe di adiacenza da generare. Nel grafo in esempio solo la prima partizione contiene più di un nodo, per cui consideriamo due sole stringhe di adiacenza:  
 
-![image-20201221160938616](./_media/8._Graph_Mining__13.png)
+![image-20201221160938616](./chapters_media/8._Graph_Mining__13.png)
 
 Essendo un grafo non orientato, formiamo le stringhe di adiacenza utilizzando solo le porzioni di righe appartenenti alla triangolare superiore. Nel primo caso avremo $00e_10e_0e_0$, mentre nel secondo caso $00e_00e_1e_0$. Considerando $e_0 < e_1$ abbiamo che la forma canonica del grafo è quella presentata nel secondo caso.  
 
@@ -368,12 +368,12 @@ L'algoritmo gSPAN ha le seguenti caratteristiche:
 
 Lo spazio di ricerca dell'algoritmo gSPAN è un albero gerarchico. Ogni vertice al livello $i$-esimo dell'albero rappresenta un grafo con $i$ nodi e possiede un codice definito come DFS code, il cui calcolo approfondiremo in seguito.  L'algoritmo utilizza un ordinamento lessicografico per i vertici dell'albero che consente di scoprire sottografi frequenti in maniera efficiente. Vertici con DFS code più piccolo vengono scoperti prima nella ricerca e, nel caso in cui un nodo appena scoperto abbia DFS code analogo ad un altro nodo analizzato precedentemente, si effettua il pruning sul nuovo nodo. 
 
-![image-20201221171200053](./_media/8._Graph_Mining__14.png)
+![image-20201221171200053](./chapters_media/8._Graph_Mining__14.png)
 
 ### 3.2 DFS code
 
 La depth-first search può produrre diversi alberi DFS, come vediamo in esempio: 
-<img src="./_media/8._Graph_Mining__15.png" alt="image-20201221171027660" style="margin-top:20px; margin-bottom:10px" />
+<img src="./chapters_media/8._Graph_Mining__15.png" alt="image-20201221171027660" style="margin-top:20px; margin-bottom:10px" />
 
 Ognuno dei nodi dell'albero è scoperto ad un tempo differente. Definiamo arco *forward* un arco che porta da un nodo ad un altro visitato ad un tempo successivo, mentre arco *backward* un arco che porta da un nodo ad un altro visitato ad un tempo precedente. 
 
@@ -399,7 +399,7 @@ Una volta generati i codici DFS di tutti gli alberi DFS, attraverso un ordine le
 
 Vediamo un esempio: 
 
-![image-20201221182015295](./_media/8._Graph_Mining__16.png)
+![image-20201221182015295](./chapters_media/8._Graph_Mining__16.png)
 
 La tabella rappresenta 3 codici DFS prodotti a partire da alberi differenti. Ogni codice è formato da una sequenza di archi rappresentati come quintuple: tempo di scoperta del nodo sorgente, tempo di scoperta del nodo destinazione, etichetta del nodo sorgente, etichetta dell'arco, etichetta del nodo destinazione. Osserviamo come ogni colonna rispetti le regole di ordinamento dettate precedentemente. 
 
@@ -420,7 +420,7 @@ L'estensione di un sottografo mediante aggiunta di un singolo arco non può esse
 
 In tal modo il codice DFS del nuovo sottografo figlio nell'albero di ricerca sarà una estensione del codice DFS del sottografo padre. Nello specifico, per ottenere il codice DFS del grafo figlio è sufficiente accodare il nuovo arco al codice DFS del grafo padre. In questo modo, l'algoritmo gSPAN genera meno candidati rispetto ad FSG. 
 
-<img src="./_media/8._Graph_Mining__17.png" alt="image-20201223102702067" style="margin-top:20px;" />
+<img src="./chapters_media/8._Graph_Mining__17.png" alt="image-20201223102702067" style="margin-top:20px;" />
 
 <div style="page-break-after: always;"></div>
 
@@ -443,7 +443,7 @@ Nel primo caso continua a valere la regola Apriori, mentre nel secondo caso potr
 
 Osservando l'esempio sottostante ci accorgiamo che il sottografo $g_1$ ha un supporto pari ad 1 nel grafo $G$. Si noti che $g_1$ *è contenuto* nel sottografo $g_2$: se vale la regola Apriori, $g_2$ dovrà avere un supporto minore o uguale a quello di $g_1$. Considerando il mining con overlap, il grafo $g_2$ avrà supporto 2 in $G$, per cui non vale la regola apriori. 
 
-![image-20201223105404548](./_media/8._Graph_Mining__18.png)
+![image-20201223105404548](./chapters_media/8._Graph_Mining__18.png)
 
 ### 4.2 Significatività statistica
 

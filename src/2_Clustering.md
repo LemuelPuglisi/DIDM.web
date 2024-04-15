@@ -28,7 +28,7 @@ $\text{3) prop. triangolare: }  D(X,Y) + D(Y,Z) \ge D(X,Z) \space \forall X,Y,Z 
 
 L'esempio più comune di spazio metrico è lo **spazio euclideo** ad *n* dimensioni $\R^n$, in cui i punti dello spazio sono vettori di numeri reali. La quantità *n* rappresenta il numero di dimensioni dello spazio. Le componenti dei vettori sono comunemente chiamate **coordinate** dei corrispondenti punti. Nelle applicazioni reali, le coordinate rappresentano gli attributi (o "**features**") degli oggetti dello spazio metrico. Una proprietà caratteristica degli spazi euclidei è che la media di un insieme di punti nello spazio è sempre definita ed è un punto nello spazio, chiamato **centroide** o **centro geometrico**. Di seguito è riportato un esempio di oggetti (cani) classificati in uno spazio euclideo a 2 dimensioni, secondo 2 attributi: altezza e peso.
 
-<img src="./_media/2._Clustering__1.png" alt="image-20201017144154970"/>
+<img src="./chapters_media/2._Clustering__1.png" alt="image-20201017144154970"/>
 
 
 
@@ -69,7 +69,7 @@ $$
 D(S,T)= 1 - \frac{|S \cap T|}{|S \cup T|}
 $$
 
-<img src="./_media/2._Clustering__2.png" alt="image-20201017151656383" />
+<img src="./chapters_media/2._Clustering__2.png" alt="image-20201017151656383" />
 
 
 
@@ -90,7 +90,7 @@ $$
 $$
 Per cui la proprietà risulta dimostrata. 
 
-<img src="./_media/2._Clustering__3.png" alt="image-20201022175538881" style="zoom: 50%;" />
+<img src="./chapters_media/2._Clustering__3.png" alt="image-20201022175538881" style="zoom: 50%;" />
 
 
 
@@ -210,7 +210,7 @@ Iniziamo considerando il caso degli spazi Euclidei: il cluster potrebbe essere r
 
 Al clustering gerarchico viene spesso associato un **dendogramma**, che descrive in che modo i cluster sono stati via via combinati. Tagliando il dendogramma ad un certo livello, i sottoalberi ottenuti rappresentano i cluster prodotti dall'algoritmo in un certo istante di computazione. 
 
-![image-20201212115356296](./_media/2._Clustering__5.png)
+![image-20201212115356296](./chapters_media/2._Clustering__5.png)
 
 
 
@@ -234,7 +234,7 @@ Altre misure di distanza tra cluster che non includano i centrodi sono le seguen
 
 
 
-<img src="./_media/2._Clustering__6.png" alt="image-20201023093033279" style="zoom:80%;" />
+<img src="./chapters_media/2._Clustering__6.png" alt="image-20201023093033279" style="zoom:80%;" />
 
 
 
@@ -242,7 +242,7 @@ Altre misure di distanza tra cluster che non includano i centrodi sono le seguen
 
 Un elemento interessante per calcolare la distanza tra cluster potrebbe essere il **medoide** (o **1-mediana**), ovvero il punto del cluster tale che la somma delle distanze degli altri punti del cluster ad esso è **minima**. A differenza del centroide, il medoide è *sempre un punto del cluster*. A questo punto, la **medoid distance** è la distanza tra due cluster X e Y data dalla distanza tra i medoidi di X e Y.  
 
-<img src="./_media/2._Clustering__7.png" alt="image-20201023093446534" style="zoom:100%;" />
+<img src="./chapters_media/2._Clustering__7.png" alt="image-20201023093446534" style="zoom:100%;" />
 
 <div style="page-break-after: always;"></div>
 
@@ -421,13 +421,13 @@ Per misurare la *qualità dei cluster*, si può far riferimento alla distanza me
 
 
 
-<img src="./_media/2._Clustering__9.png" alt="image-20201023153018112" style="zoom:80%;" />
+<img src="./chapters_media/2._Clustering__9.png" alt="image-20201023153018112" style="zoom:80%;" />
 
 <div style="page-break-after: always;"></div>
 
 Come determinare il valore ideale di *k*? Osservando il grafico sottostante notiamo che all'aumentare di *k*, la distanza media dal centroide diminuisce. Il valore ideale di *k* risiede nel flesso della curva, dove la variazione rallenta. 
 
-<img src="./_media/2._Clustering__10.png" alt="image-20201023153319150" />
+<img src="./chapters_media/2._Clustering__10.png" alt="image-20201023153319150" />
 
 Nella pratica, l'approccio migliore è dato dalla ricerca binaria nello spazio dei valori di *k*. Supponiamo che tra due valori x e y assunti dal parametro k ci sia una differenza non trascurabile nella distanza media dai centroidi: 
 
@@ -491,7 +491,7 @@ Un **cluster** in DBscan è definito come un insieme *massimale* di *punti conne
 * $\forall P,Q \in D$ se $P \in C$ e $Q$ è raggiungibile per densità da P rispetto a $\epsilon$ e $MinPts$, allora $Q \in C$ (**Massimalità**). 
 * $\forall P,Q \in C$, P è connesso per densità a Q (**Connettività**). 
 
-<img src="./_media/2._Clustering__11.png" alt="image-20201023171442934" style="zoom:50%;" />
+<img src="./chapters_media/2._Clustering__11.png" alt="image-20201023171442934" style="zoom:50%;" />
 
 
 
@@ -518,7 +518,7 @@ La scelta dei parametri è basata su euristiche, generalmente si pone $MinPts \g
 
 Una volta stimato $MinPts = k$, si passa a stimare il valore del raggio $\epsilon$: per stimare $\epsilon$ si possono ordinare i punti del dataset sulla base della distanza dal k-esimo elemento più vicino, dalla distanza più alta a quella più bassa e plottare tali distanze ordinate. La curva che si ottiene e simile a quella vista per il clustering gerarchico. Il valore ottimale di $\epsilon$ è l'ordinata del punto del grafico in cui la curva <\<piega>> maggiormente. Scegliendo valori troppo bassi di $\epsilon$, molti punti non verrebbro clusterizzati, mentre valori troppo alti porterebbero a cluster troppo grandi.  
 
-<img src="./_media/2._Clustering__12.png" alt="image-20201212121036405" style="zoom:67%; margin-top:20px" />
+<img src="./chapters_media/2._Clustering__12.png" alt="image-20201212121036405" style="zoom:67%; margin-top:20px" />
 
 
 
@@ -564,4 +564,4 @@ Analizziamo i casi:
 
 
 
-![image-20201212124540950](./_media/2._Clustering__13.png)
+![image-20201212124540950](./chapters_media/2._Clustering__13.png)

@@ -20,7 +20,7 @@ Il classificatore $c$ effettuerà una predizione $\hat{y} = c(e)$ sulla classe d
 
 Ambo classificazione e predizione sono due metodi di tipo *supervised learning*. Entrambe utilizzano le feature delle osservazioni per classificare / predire un risultato. È possibile creare confusione tra le due tecniche, per cui evidenziamo la differenza principale: la classificazione predice l'etichetta della classe categoriale di appartenenza (discreta o nominale), mentre la predizione modella funzioni continue e consente la predizione di dati sconosciuti o mancanti.
 
-![image-20210103223629039](./_media/3._Classificazione__1.png)
+![image-20210103223629039](./chapters_media/3._Classificazione__1.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -98,7 +98,7 @@ if outlook == 'Sunny' and humidity == 'Normal':
     return 'PLAY'
 ```
 
-![image-20201108122003820](./_media/3._Classificazione__2.png)
+![image-20201108122003820](./chapters_media/3._Classificazione__2.png)
 
 
 
@@ -130,7 +130,7 @@ Ipotizziamo di trovarci al nodo impuro X con un insieme di osservazioni $S_X$ e 
 * (**b**) Se l'attributo è **continuo** allora si definisce un valore di soglia $\sigma$ e si partiziona l'insieme $S_X$ a seconda se $A \ge \sigma$ o $A < \sigma$. La soglia è scelta in modo che ogni partizione abbia un numero minimo di elementi. Si aggiungono due figli ad X a cui sono associate rispettivamente le partizioni create.
 * (**c**) Se l'attributo è **booleano** allora si partiziona $S_X$ in due insiemi $S_1$ e $S_2$ a seconda che $A=true$ oppure $A=false$. Si aggiungono due figli ad X a cui sono associate rispettivamente le partizioni create.
 
-<img src="./_media/3._Classificazione__3.png" alt="image-20201108170101455" style="zoom:67%;" />
+<img src="./chapters_media/3._Classificazione__3.png" alt="image-20201108170101455" style="zoom:67%;" />
 
 
 
@@ -138,7 +138,7 @@ Ipotizziamo di trovarci al nodo impuro X con un insieme di osservazioni $S_X$ e 
 
 La costruzione dell'albero decisionale è fortemente influenzata dall'ordine in cui si considerano gli attributi per lo splitting. Al variare dell'ordine, l'albero in output differisce; l'obiettivo consiste nello scegliere l'albero più semplice e compatto possibile. Nell'immagine che segue troviamo due alberi costruiti a partire dallo stesso training set, con un criterio di scelta degli attributi differente: 
 
-![image-20201108170709907](./_media/3._Classificazione__4.png)
+![image-20201108170709907](./chapters_media/3._Classificazione__4.png)
 
 Ovviamente l'albero a destra è più compatto, comprensibile ed efficiente di quello a sinistra. Trovare l'albero minimale (con altezza minore) è un problema NP-Hard, per cui occorre utilizzare degli algoritmi approssimati che cerchino un ottimo locale sfruttando una strategia **greedy**. Un' euristica ricorrente è la seguente: 
 
@@ -365,7 +365,7 @@ $$
 
 Vediamo un esempio di pruning pessimistico: 
 
-<img src="./_media/3._Classificazione__5.png" alt="image-20201109003303431" style="zoom:70%; border: solid; margin-top:40px" />
+<img src="./chapters_media/3._Classificazione__5.png" alt="image-20201109003303431" style="zoom:70%; border: solid; margin-top:40px" />
 
 <div style="page-break-after: always;"></div>
 
@@ -392,7 +392,7 @@ A partire dall'albero decisionale è possibile estrarre delle production rules d
 
 Vediamo un esempio: 
 
-![image-20201109005317025](./_media/3._Classificazione__6.png)
+![image-20201109005317025](./chapters_media/3._Classificazione__6.png)
 
 #### 2.6.1 Qualità di una regola 
 
@@ -525,11 +525,11 @@ Per semplicità consideriamo $X_c$ univariata e distinguiamo due casi:
 
 Consideriamo una versione semplificata della classificazione degli Iris di Fisher dove troviamo due sole variabili: *SepalWidth* e *SepalLength*. Le variabili sono discrete e finite e possono assumere 3 soli valori: small, medium e large, rispetto alla dimensione del sepalo. Sia $X = [SepalWidth, SepalLength]$ una variabile aleatoria bidimensionale. L'esempio può appartenere a una tra le classi *Setosa*, *Virginica* e *Versicolor*. Definiamo 3 diverse verosimiglianze $P(X_{set})$, $P(X_{vir})$ e $P(X_{ver})$ a partire dalle seguenti tabelle: 
 
-![image-20210104092625946](./_media/3._Classificazione__7.png)
+![image-20210104092625946](./chapters_media/3._Classificazione__7.png)
 
 Le righe nelle tabelle rappresentano la larghezza del sepalo (*SepalWidth*) mentre le colonne la lunghezza (*SepalLength*). Ogni tabella contiene la frequenza assoluta delle occorrenze per ognuna delle possibili combinazioni delle due variabili. Possiamo trasformare queste tabelle in una distribuzione di probabilità dividendo ogni elemento per il totale delle osservazioni del sottoinsieme considerato. 
 
-![image-20210104092913309](./_media/3._Classificazione__8.png)
+![image-20210104092913309](./chapters_media/3._Classificazione__8.png)
 
 Supponiamo di assegnare una probabilità a priori equa di $\frac 1 3$ ad ognuna delle tre classi e stimiamo la classe di un esempio $X = [medium, medium]$. Per il metodo Maximum a Priori, è necessario prendere in considerazione la classe $c$ che massimizzi $P(X \mid C) \times P(C)$. 
 $$
@@ -553,7 +553,7 @@ Ipotizziamo che il dataset di esempi sia bilanciato e che quindi le probabilità
 
 Consideriamo il seguente grafico che mostra la distribuzione degli input di sesso femminile ($X = 1$) in base ad altezza e peso: 
 
-<img src="./_media/3._Classificazione__9.png" alt="image-20210104094540057" style="zoom:60%;" />
+<img src="./chapters_media/3._Classificazione__9.png" alt="image-20210104094540057" style="zoom:60%;" />
 
 La distribuzione è molto simile ad una gaussiana bidimensionale. Possiamo modellare $P(X \mid C = 1)$ considerando tutti e soli gli esempi di sesso femminile e calcolando i parametri della gaussiana bidimensionale: 
 $$
@@ -727,7 +727,7 @@ Nella **classificazione non lineare** la classificazione di $X$ è effettuata ut
 
 Nella classificazione binaria le osservazioni possono essere separate in due classi differenti. Utilizzare la classificazione lineare binaria si traduce nel trovare un **iperpiano separatore** che possa suddividere le osservazioni nelle due classi. Si utilizza una classificazione non binaria quando non esiste una funzione lineare in grado di separare tali dati. 
 
-<img src="./_media/3._Classificazione__10.png" alt="image-20201115202801237" style="zoom: 80%;" />
+<img src="./chapters_media/3._Classificazione__10.png" alt="image-20201115202801237" style="zoom: 80%;" />
 
 
 
@@ -745,7 +745,7 @@ $$
 con *w* vettore di pesi con cardinalità pari a quella degli attributi + 1. 
 Perceptron effettua un ***apprendimento online***: gli elementi del training set vengono processati uno per volta e i pesi aggiornati ogni volta che un nuovo elemento è preso in esame. Il modello prodotto, chiamato anche single-layer Perceptron, è una **rete neurale** single-layer. Esistono anche multi-layer Perceptron, che combinano più funzioni di aggregazione. 
 
-<img src="./_media/3._Classificazione__11.png" alt="image-20201115224636980" style="zoom: 67%;" />
+<img src="./chapters_media/3._Classificazione__11.png" alt="image-20201115224636980" style="zoom: 67%;" />
 
 
 
@@ -817,7 +817,7 @@ Definiamo i **vettori di supporto** (support vectors) come le osservazioni più 
 
 I vettori di supporto servono a stabilire quale tra gli iperpiani che separano linearmente i punti è quello ottimale. Introduciamo i **margini** come le distanze tra questi vettori di supporto e l'iperpiano. L'iperpiano separatore ottimale è quello che massimizza i margini. 
 
-![image-20201115230804939](./_media/3._Classificazione__12.png)
+![image-20201115230804939](./chapters_media/3._Classificazione__12.png)
 
 
 
@@ -879,7 +879,7 @@ L'obiettivo principale è quello di massimizzare il margine, ovvero la distanza 
 
 Per ottenere la larghezza del margine, basterebbe proiettare i due vettori di supporto sul versore normale e calcolarne la differenza: 
 
-![image-20201116121701838](./_media/3._Classificazione__13.png)
+![image-20201116121701838](./chapters_media/3._Classificazione__13.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -1118,7 +1118,7 @@ Dove per moda si intende la funzione statistica che individua l'elemento più fr
 
 Consideriamo le seguenti mappe le quali individuano, al variare di $K$, la classe predominante in una porzione di area. Se $K$ è particolarmente piccolo (primo quadrante), allora il piano verrà segmentato in piccole porzioni di area con classi diverse e ciò può provocare overfitting. Tuttavia, un $K$ troppo grande andrebbe ad approssimare eccessivamente la scelta, per cui l'algoritmo risulterebbe meno accurato e si avrebbe underfitting. L'iperparametro va calibrato attraverso delle prove su un set di validazione. 
 
-![image-20201129204555490](./_media/3._Classificazione__16.png)
+![image-20201129204555490](./chapters_media/3._Classificazione__16.png)
 
 
 
@@ -1172,7 +1172,7 @@ Il *Random Forest* è un esempio di modello (classificatore o predittore) ensemb
 
 La matrice di confusione è una struttura utile a rappresentare l'accuratezza di un classificatore. Da tale matrice derivano varie metriche che analizzeremo in dettaglio. Sulle righe sono disposti i valori reali, mentre sulle colonne i valori predetti. Vediamo un esempio in figura: 
 
-<img src="./_media/3._Classificazione__17.png" alt="image-20201212125518731" style="zoom: 50%;" />
+<img src="./chapters_media/3._Classificazione__17.png" alt="image-20201212125518731" style="zoom: 50%;" />
 
 L'elemento $c_{i,j}$ contiene il numero di casi in cui il classificatore ha classificato l'osservazione nella classe $j$, quando la classe di appartenenza è $i$. Nel caso in cui $j = i$ allora la classe predetta è corretta: un buon classificatore ha valori alti nella diagonale principale e valori nulli (o molto bassi) nelle altre posizioni. 
 
@@ -1241,7 +1241,7 @@ F_1 =2 \times \frac {precision · recall} {precision + recall}
 $$
 Se sia la precision che la recall hanno un valore alto, allo lo score F1 sarà anch'esso alto. Questa è una proprietà della media armonica, per cui si preferisce rispetto alla media canonica. Vediamo la differenza tra le due: 
 
-![image-20201212135454842](./_media/3._Classificazione__18.png)
+![image-20201212135454842](./chapters_media/3._Classificazione__18.png)
 
 
 
@@ -1261,7 +1261,7 @@ b) Nel caso limite in cui la soglia $\sigma$ sia cosi bassa che tutte le tuple s
 
 Al diminuire della soglia, aumenta il numero di tuple classificate come positive e contestualmente entrambi gli indici aumentano (in misura diversa). La situazione ideale è quella in cui TPR aumenta fino a raggiungere il valore 1 ed FPR si mantiene pari a 0, per cui si ha il miglior classificatore. La curva roc diventa banalmente una funzione scala.  Un classificatore random avrà sempre uguali valori di TPR ed FPR al variare di $\sigma$. 
 
-<img src="./_media/3._Classificazione__19.png" alt="image-20201212141142291" style="zoom: 50%;" />
+<img src="./chapters_media/3._Classificazione__19.png" alt="image-20201212141142291" style="zoom: 50%;" />
 
 
 
@@ -1273,7 +1273,7 @@ a) Nel caso limite in cui la soglia $\sigma$ sia così alta che tutte le tuple s
 
 b) Nel caso limite in cui la soglia $\sigma$ sia cosi bassa che tutte le tuple sono classificate come positive, allora significa che tutte le tuple positive verranno rilevate, per cui la recall = 1. Tutta via la precision sarà bassa poiché il numero di osservazioni positive classificate correttamente sarà diviso per la cardinalità del dataset.  
 
-<img src="./_media/3._Classificazione__20.png" alt="image-20201212141613907" style="zoom:50%;" />
+<img src="./chapters_media/3._Classificazione__20.png" alt="image-20201212141613907" style="zoom:50%;" />
 
 
 

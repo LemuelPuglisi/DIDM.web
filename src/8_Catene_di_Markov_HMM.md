@@ -34,7 +34,7 @@ Quindi la probabilità che all'istante di tempo $t$ si abbia $\pi_t = s_t$ dipen
 
 Consideriamo la seguente catena di Markov (immagine sottostante) dove i nodi rappresentano i possibili stati e gli archi le transizioni possibili con le rispettive probabilità. Supponiamo di osservare una sequenza di stati del genere: $\{3, 3, 2, 1, 2\}$ con probabilità iniziali $P(\pi_1=1) =0.4, \space P(\pi_1=2) =0.4, \space P(\pi_1=3) =0.2$. Come calcoliamo la probabilità che si verifichi tale sequenza?
 
-![img](./_media/markovmodel.webp)
+![img](./chapters_media/markovmodel.webp)
 
 Vogliamo quindi calcolare la probabilità $P(3, 3, 2, 1, 2)$, che risulta essere una probabilità congiunta. In generale, per le proprietà sul prodotto logico tra eventi si ha: 
 $$
@@ -71,11 +71,11 @@ Nella **matrice di transizione** $A$ di una catena di Markov la somma degli elem
 
 Una catena di Markov si dice **irriducibile** se da ogni stato $i$ è possibile raggiungere un qualsiasi altro stato della catena mediante una o più transizioni. 
 
-![image-20201122174003146](./_media/markovmodel2.png)
+![image-20201122174003146](./chapters_media/markovmodel2.png)
 
 Definiamo **periodo** di uno stato $s$ come il minimo numero di passi necessari per tornare ad $s$ con probabilità non nulla. Se il periodo è maggiore di 1, lo stato $s$ è detto periodico. Una catena di Markov **aperiodica** è una catena in cui *nessuno* stato è periodico. 
 
-![image-20201122174024013](./_media/markovmodel3.png)
+![image-20201122174024013](./chapters_media/markovmodel3.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -83,7 +83,7 @@ Definiamo **periodo** di uno stato $s$ come il minimo numero di passi necessari 
 
 Prendiamo in considerazione la seguente catena di Markov: 
 
-![image-20201122174923459](./_media/markovmodel4.png)
+![image-20201122174923459](./chapters_media/markovmodel4.png)
 
 Essa indica che una persona che compra Coca-Cola nel 90% dei casi la prossima volta comprerà Coca-Cola. Se una persona compra Pepsi allora nell'80% dei casi la prossima volta comprerà Pepsi. Visualizziamo la matrice di transizione: 
 
@@ -157,7 +157,7 @@ Un modello di Markov nascosto (in inglese Hidden Markov Model o HMM) è un model
 
 
 
-<img src="./_media/9._Catene_di_Markov,_HMM__5.png" alt="image-20201122195340681" style="margin-top:30px" />
+<img src="./chapters_media/9._Catene_di_Markov,_HMM__5.png" alt="image-20201122195340681" style="margin-top:30px" />
 
 <div style="page-break-after: always;"></div>
 
@@ -179,7 +179,7 @@ $$
 e_{s,b} = P(x_t = b | \pi_t = s)
 $$
 
-<img src="./_media/hmm1.png" alt="Modelling reassurances of clinicians with hidden Markov models | BMC  Medical Research Methodology | Full Text" style="zoom:80%; margin-top: 20px" />
+<img src="./chapters_media/hmm1.png" alt="Modelling reassurances of clinicians with hidden Markov models | BMC  Medical Research Methodology | Full Text" style="zoom:80%; margin-top: 20px" />
 
 
 
@@ -263,7 +263,7 @@ Ricordando che *k* è il numero di stati ed *n* è la lunghezza della sequenza $
 
 Applicare l'algoritmo forward equivale a percorre tutti i possibili cammini di un particolare tipo di grafo, chiamato lattice, dove i *k* stati sono disposti in colonna e ripetuti *n* volte:
 
-![image-20201123110930065](./_media/9._Catene_di_Markov,_HMM__7.png)
+![image-20201123110930065](./chapters_media/9._Catene_di_Markov,_HMM__7.png)
 
 
 
@@ -335,7 +335,7 @@ $$
 
 L'algoritmo di Viterbi ha una struttura simile a quella dell'algoritmo forward. Tuttavia, anziché sommare i contributi provenienti da ogni singolo stato visitato al passo precedente, seleziona di volta in volta il contributo migliore, ovvero quello con il valore massimo. Ciò equivale nel lattice a tracciare un cammino di stati di lunghezza *n* che massimizzi la probabilità di ottenere la sequenza $X$: 
 
-<img src="./_media/9._Catene_di_Markov,_HMM__8.png" alt="image-20201123111918963" style="zoom:80%;" />
+<img src="./chapters_media/9._Catene_di_Markov,_HMM__8.png" alt="image-20201123111918963" style="zoom:80%;" />
 
 Definiamo una funzione $V_t$: 
 $$
@@ -570,7 +570,7 @@ s_t(i,j) = P(\pi_t=i, \pi_{t+1}=j|X)
 $$
 Data la sequenza di simboli $X$, tale espressione esprime la probabilità a posteriori che lo stato $\pi_t=i$ e che lo stato successivo $\pi_{t+1} = j$. Osserviamo il lattice associato: 
 
-![image-20201123172009711](./_media/9._Catene_di_Markov,_HMM__9.png)
+![image-20201123172009711](./chapters_media/9._Catene_di_Markov,_HMM__9.png)
 
 Possiamo calcolare la probabilità che si arrivi allo stato $\pi_t = i$ attraverso un percorso $\pi_1, ..., \pi_{t-1}$ qualsiasi attraverso la **probabilità forward**, mentre calcoliamo la probabilità di arrivare al tempo $t+1$ tale che $\pi_{t+1} = j$ provenendo, al tempo $n$, da uno qualunque dei $k$ stati attraverso la **probabilità backward**. È necessario considerare anche la transizione da $i$ a $j$ e l'emissione del simbolo $x_{t+1}$. 
 $$

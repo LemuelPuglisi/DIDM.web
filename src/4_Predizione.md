@@ -131,11 +131,11 @@ La regressione lineare semplice consiste nel trovare una funzione $f$ di forma $
 
 Disegniamo un plot del dataset ponendo il numero medio di stanze sull'asse delle $x$ ed il prezzo medio sull'asse delle $y$: 
 
-![image-20201205112612906](./_media/4._Predizione__1.png)
+![image-20201205112612906](./chapters_media/4._Predizione__1.png)
 
 Vorremmo idealmente trovare una funzione $f$ che riesca ad approssimare il prezzo medio delle case $y$ dato un numero di stanze medio $x$. Dal plot osserviamo che il prezzo aumenta proporzionalmente al numero di stanze. Calcolando la covarianza otteniamo $Cov(x,y) = 4.49$, il che è un'altra conferma della correlazione tra le due variabili. Esse seguono circa un andamento lineare, quindi sono approssimativamente distribuite lungo una retta: 
 
-![image-20201205113313888](./_media/4._Predizione__2.png)
+![image-20201205113313888](./chapters_media/4._Predizione__2.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -155,7 +155,7 @@ $$
 $$
 Se proviamo a plottare la linea in figura, essa sarà quella retta con maggiore densità lineare e avrà, nel caso migliore, una misura di errore bassa. 
 
-![image-20201205114125881](./_media/4._Predizione__3.png)
+![image-20201205114125881](./chapters_media/4._Predizione__3.png)
 
 
 
@@ -223,7 +223,7 @@ $$
 
 Essendo la somma delle dimensioni uguale a 3, possiamo visualizzare un plot tridimensionale dei nostri punti: 
 
-![image-20201205122850442](./_media/4._Predizione__4.png)
+![image-20201205122850442](./chapters_media/4._Predizione__4.png)
 
 In tal caso il modello lineare $f$ sarà: 
 $$
@@ -235,7 +235,7 @@ $$
 $$
 Tali parametri identificano il piano nello spazio che meglio approssima la relazione tra i valori in input ed il prezzo da predire: 
 
-![image-20201205123117907](./_media/4._Predizione__5.png)
+![image-20201205123117907](./chapters_media/4._Predizione__5.png)
 
 Allo stesso modo possiamo tirar fuori dei significati geometrici e statistici dai coefficienti: 
 
@@ -317,7 +317,7 @@ Per risolvere tale problema si possono utilizzare molte strategie di ottimizzazi
 
 Supponiamo di avere una funzione $f$ *convessa* come in figura, ovvero una funzione con un solo minimo locale. 
 
-![image-20201205145701869](./_media/4._Predizione__6.png)
+![image-20201205145701869](./chapters_media/4._Predizione__6.png)
 
 Supponiamo di partire da un punto $x_0$ qualsiasi, per trovare il minimo bisogna seguire l'andamento decrescente della funzione. Tuttavia non abbiamo abbastanza informazioni per sapere come muoverci, quindi è necessario utilizzare uno strumento matematico che dia informazioni sull'andamento della funzione: la derivata. 
 
@@ -339,7 +339,7 @@ x_1 = x_0 - \gamma f'(x_0)
 $$
 Osserviamo che, come sperato, se la derivata $f'(x_0)$ è negativa, ci muoveremo verso destra di un fattore $|\gamma f'(x_0)|$, viceversa per la derivata positiva. Vediamo come procede l'algoritmo nel nostro esempio di prova: 
 
-![image-20201205153042215](./_media/4._Predizione__7.png)
+![image-20201205153042215](./chapters_media/4._Predizione__7.png)
 
 Nel punto $x_3$ la derivata è così vicina allo 0 che $x_3$ approssima quasi perfettamente il minimo. Per cui soddisfa l'espressione: 
 $$
@@ -388,13 +388,13 @@ f_{x_n}(x)\\
 $$
 Nel caso in cui la funzione sia a due variabili, si potrebbe costruire un plot tridimensionale come segue. In tal caso, il gradiente sarà un vettore a due dimensioni e varierà punto per punto. 
 
-![image-20201205155205730](./_media/4._Predizione__8.png)
+![image-20201205155205730](./chapters_media/4._Predizione__8.png)
 
 <div style="page-break-after: always;"></div>
 
 La figura che segue mostrerà graficamente l'andamento che deve seguire la procedura nel caso multivariato: 
 
-![image-20201205155410178](./_media/4._Predizione__9.png)
+![image-20201205155410178](./chapters_media/4._Predizione__9.png)
 
 Il ragionamento è analogo, ma l'aggiornamento dei pesi va fatto per ogni variabile. Di conseguenza i passi che seguirà l'algoritmo sono i seguenti: 
 
@@ -470,7 +470,7 @@ Il learning rate $\gamma$ è un iperparametro da determinare. Possiamo utilizzar
 
 La regressione lineare risulta limitante nei casi in cui la relazione tra le variabili indipendenti e la variabile dipendente è chiaramente non lineare. Consideriamo ad esempio il seguente plot: 
 
-![image-20201205170903862](./_media/4._Predizione__10.png)
+![image-20201205170903862](./chapters_media/4._Predizione__10.png)
 
 La relazione tra le variabili segue chiaramente una curva anziché una retta. Utilizzare la regressione lineare produrrebbe sicuramente fenomeni di *underfitting*. 
 
@@ -484,7 +484,7 @@ f(x) = \theta_0 + \theta_1 x + \theta_2 x^2  + ... + \theta_d x^d
 $$
 Dove $x^i$ rappresenta la potenza $i$-esima di $x$ e non l'indice rispetto al training set. Modelli polinomiali di grado più alto consentono di rappresentare funzioni non lineari: 
 
-![image-20201205171752254](./_media/4._Predizione__11.png)
+![image-20201205171752254](./chapters_media/4._Predizione__11.png)
 
 Più alto è il grado del polinomio, più si possono ottenere curve complesse. Possiamo facilmente osservare che anche se la funzione non è lineare rispetto ad $x$, essa è lineare rispetto alle variabili $x, x^2, ..., x^d$. Determinate le variabili $x^i$, trovare i coefficienti $\Theta = \{\theta_0, \theta_1, ..., \theta_d\}$ è comunque un problema di regressione lineare, risolvibile attraverso l'algoritmo di discesa del gradiente. 
 
@@ -496,7 +496,7 @@ f(x) = \theta_0 + \theta_1 x \Longrightarrow f(x) =
 $$
 Se applichiamo questo metodo all'esempio precedente con un grado $d=2$ avremo un risultato di gran lunga più adatto rispetto ad una retta; 
 
-![image-20201205172654223](./_media/4._Predizione__12.png)
+![image-20201205172654223](./chapters_media/4._Predizione__12.png)
 
 
 
@@ -531,7 +531,7 @@ Quindi utilizzeremo la prima soluzione, ponendo $\theta_2 = 0$ fissato. Computaz
 
 In generale esiste un rapporto tra la norma dei coefficienti di una funzione polinomiale e la sua flessibilità (e quindi capacità). Nel grafico sottostante vediamo tre polinomi i cui coefficienti sono proporzionali tra loro a meno dell'intercetta, scelta ad hoc per posizionare le funzioni vicine tra loro lungo l'asse $y$. Il polinomio verde risulta visivamente meno flessibile, e concorde alla osservazione, i coefficienti sono più piccoli rispetto a quelli degli altri due polinomi. 
 
-<img src="./_media/4._Predizione__13.png" alt="image-20201206114026528" style="margin-top:100px" />
+<img src="./chapters_media/4._Predizione__13.png" alt="image-20201206114026528" style="margin-top:100px" />
 
 <div style="page-break-after: always;"></div>
 
@@ -589,11 +589,11 @@ $$
 $$
 Tuttavia questo metodo risente di alcuni problemi fondamentali. Consideriamo un esempio ad una dimensione in cui degli input $x \in \R$ sono classificati in due classi $\{0, 1\}$: 
 
-<img src="./_media/4._Predizione__14.png" alt="image-20201208164949399" style="margin-top:20px;margin-bottom:20px"/>
+<img src="./chapters_media/4._Predizione__14.png" alt="image-20201208164949399" style="margin-top:20px;margin-bottom:20px"/>
 
 Idealmente vorremmo una funzione che associ tutti i punti "positivi" ad 1 e tutti i punti "negativi" a 0.  Tale funzione sarebbe definita come $f: \R \to \{0,1\}$, quindi il codominio sarà discreto. Se proviamo ad utilizzare la regressione lineare, otterremo con molta probabilità una linea del genere: 
 
-<img src="./_media/4._Predizione__15.png" alt="image-20201208170213165" style="margin-top:20px;" />
+<img src="./chapters_media/4._Predizione__15.png" alt="image-20201208170213165" style="margin-top:20px;" />
 
 <div style="page-break-after: always;"></div>
 
@@ -601,7 +601,7 @@ Idealmente vorremmo una funzione che associ tutti i punti "positivi" ad 1 e tutt
 
 Possiamo vedere immediatamente che tale funzione non risultà essere particolarmente accurata nella classificazione: cosa fare quando i punti stanno nel mezzo? O quando stanno sopra 1 / sotto 0? Potremmo migliorare la funzione mappando gli input $x$ alla probabilità che essi assumano il valore 1: $P(y=1|x)$. La funzione sarebbe definita come segue: $f: \R \to \left[0,1\right]$, che risolve i problemi sull'assegnazione dei valori tra 0 ed 1, ma risulta ancora imprecisa per input fuori dal range.  Anziché una retta, vorremmo utilizzare una curva ad $s$ che copra gli elementi come segue: 
 
-![image-20201208170736572](./_media/4._Predizione__16.png) 
+![image-20201208170736572](./chapters_media/4._Predizione__16.png) 
 
 Questa funzione ideale mappa gli input nel range $\{0,1\}$ e satura a $0$ ed $1$, il che è naturale poiché all'avvicinarsi ad uno dei due estremi densi aumenta anche la certezza di appartenenza ad una classe. Questa analisi suggerisce che non è possibile risolvere il problema della classificazione attraverso una funzione lineare. 
 
@@ -617,7 +617,7 @@ odd(p) = \frac p {1-p}
 $$
 Questa prima trasformazione risolve parte del problema, di fatto mappa la probabilità dall'intervallo $[0,1)$ all'intervallo $[0, +\infty$). Vediamo l'effetto della mappatura nel grafico sottostante: 
 
-![image-20201208175015976](./_media/4._Predizione__17.png)
+![image-20201208175015976](./chapters_media/4._Predizione__17.png)
 
 Vogliamo che l'intervallo finale sia $(-\infty, +\infty)$, per cui definiamo la funzione **logit** come il logaritmo naturale della funzione dispari: 
 $$
@@ -629,11 +629,11 @@ logit: (0,1) \to (- \infty, +\infty)
 $$
 altresì confermato dal grafico della funzione: 
 
-<img src="./_media/4._Predizione__18.png" alt="image-20201208175548098" style="margin:20px" />
+<img src="./chapters_media/4._Predizione__18.png" alt="image-20201208175548098" style="margin:20px" />
 
 Ci si aspetta che le probabilità siano pressoché non lineari (a forma di $s$), la funzione di **logit** permette di linearizzare i dati rispetto all'asse $x$, come mostrato in figura: 
 
-<img src="./_media/4._Predizione__19.png" alt="image-20201208175931306" style="margin:20px" />
+<img src="./chapters_media/4._Predizione__19.png" alt="image-20201208175931306" style="margin:20px" />
 
 <div style="page-break-after: always;"></div>
 
@@ -665,7 +665,7 @@ logistic(x) = \frac 1 {1 + e^{-x}}
 $$
 La curva disegnata dalla funzione logistica è a forma di $s$ (da cui il nome sigmoide) come mostrato in figura: 
 
-![image-20201208184333812](./_media/4._Predizione__20.png)
+![image-20201208184333812](./chapters_media/4._Predizione__20.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -677,7 +677,7 @@ P(y=1\mid x) = f_{\Theta}(x) = \frac 1 {1 + e^{- \Theta^T x}}
 $$
 Allenare il regressore logistico significa trovare i parametri $\Theta$ che riescano ad approssimare al meglio la probabilita $P(y=1\mid x)$. La funzione approssimata non è più una retta, bensì un sigmoide: 
 
-![image-20201208185123009](./_media/4._Predizione__21.png)
+![image-20201208185123009](./chapters_media/4._Predizione__21.png)
 
 Una volta che il modello è allenato, possiamo classificare le osservazioni attraverso la seguente regola: 
 $$
@@ -785,7 +785,7 @@ x_2 = - \frac {\theta_1} {\theta_2} x_1 - \frac {\theta_0} {\theta_2}
 $$
 Per cui il coefficiente angolare è $m = - \frac {\theta_1} {\theta_2}$ e l'intercetta è $q = - \frac {\theta_0} {\theta_2}$. Se grafichiamo questa linea, otteniamo il confine decisionale tra gli elementi delle due classi. 
 
-![image-20201208194056944](./_media/4._Predizione__22.png)
+![image-20201208194056944](./chapters_media/4._Predizione__22.png)
 
 \* *L'iperpiano rappresentato è dato dai coefficienti $\Theta$ e non rappresenta la funzione logistica, che non è una retta, bensì una curva.* 
 
@@ -797,7 +797,7 @@ Per cui il coefficiente angolare è $m = - \frac {\theta_1} {\theta_2}$ e l'inte
 
 L'approccio **one-vs-all** permette di trasformare il problema della classificazione multiclasse (con più di 2 classi) in un insieme di problemi di classificazione binaria. Ogni sottoproblema può essere risolto attraverso un classificatore binario (es. il regressore logistico). Oltre al classificatore binario, è necessario che l'output contenga anche un valore di confidenza (**confidence value**), come un probabilità. Questo è necessario per confrontare i risultati di tutti i classificatori e capire quale potrebbe essere quello corretto. 
 
-<img src="./_media/4._Predizione__23.png" alt="image-20201208200958033" style="margin-top:30px;" />
+<img src="./chapters_media/4._Predizione__23.png" alt="image-20201208200958033" style="margin-top:30px;" />
 
 Dato un problema di classificazione $T$ con $n$ classi, l'approccio *one-vs-all* consiste nei seguenti passi: 
 

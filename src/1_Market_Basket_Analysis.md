@@ -47,7 +47,7 @@ $$
 $$
 ovvero: "Se il basket contiene gli oggetti $i_1, ..., i_k$ allora molto probabilmente conterrà anche $j$". Definiamo la **confidenza** (confidence) di una regola di associazione come la probabilità di $j$ dati $i_1, ..., i_k$.  
 
-<img src="./_media/1._Market_Basket_Analysis__1.png" alt="image-20201017103411250" style="zoom:50%; border: 4px solid #212121; border-radius:5px 5px 5px 5px; margin-top:40px;" />
+<img src="./chapters_media/1._Market_Basket_Analysis__1.png" alt="image-20201017103411250" style="zoom:50%; border: 4px solid #212121; border-radius:5px 5px 5px 5px; margin-top:40px;" />
 
 
 
@@ -111,7 +111,7 @@ $$
 (i,j) = k = (i-1)(n-\frac{i}{2}) + j -i
 $$
 
-<img src="./_media/1._Market_Basket_Analysis__2.png" alt="image-20201017115725698" style="zoom: 33%; border: 4px solid rgb(33, 33, 33); border-radius: 5px; margin-top: 10px; float:left" />
+<img src="./chapters_media/1._Market_Basket_Analysis__2.png" alt="image-20201017115725698" style="zoom: 33%; border: 4px solid rgb(33, 33, 33); border-radius: 5px; margin-top: 10px; float:left" />
 
 
 
@@ -119,7 +119,7 @@ $$
 
 Un altro approccio consiste nel contare solo le coppie effettivamente presenti nei basket, quindi tenere una tripla di valori (i, j, c) tale che la coppia {i,j} abbia *c* occorrenze, con c > 0. Ogni tripla richiede 12 bytes, ma non tutte le coppie sono presenti in memoria. Tale approccio risulta conveniente rispetto alla matrice solo se occorrono al più 1/3 delle coppie totali, a causa del triplo della memoria utilizzata per ogni coppia (12 byte rispetto ai 4 della matrice). Potrebbe servire ulteriore spazio per strutture che facilitano l'accesso alla tabella, come delle hash table. 
 
-<img src="./_media/1._Market_Basket_Analysis__3.png" alt="image-20201017120003366" style="zoom: 33%; border: 4px solid rgb(33, 33, 33); border-radius: 5px; margin-top: 10px;float:left" />
+<img src="./chapters_media/1._Market_Basket_Analysis__3.png" alt="image-20201017120003366" style="zoom: 33%; border: 4px solid rgb(33, 33, 33); border-radius: 5px; margin-top: 10px;float:left" />
 
 
 
@@ -144,7 +144,7 @@ A partire dall'insieme C<sub>1</sub> di tutti gli item viene svolto il primo pas
 
 > Per dati tipici nel MBA e un supporto richiesto dell'1%, k=2 richiede la maggior parte della memoria. 
 
-<img src="./_media/1._Market_Basket_Analysis__4.png" alt="image-20201017124024466" style="zoom:67%;border: 4px solid #212121; border-radius:5px 5px 5px 5px; margin-top:20px;" />
+<img src="./chapters_media/1._Market_Basket_Analysis__4.png" alt="image-20201017124024466" style="zoom:67%;border: 4px solid #212121; border-radius:5px 5px 5px 5px; margin-top:20px;" />
 
 Osservazioni: 
 

@@ -1,0 +1,403 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Map-Reduce - data-mining</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="0_Preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded "><a href="1_Market_Basket_Analysis.html"><strong aria-hidden="true">2.</strong> Market Basket Analysis</a></li><li class="chapter-item expanded "><a href="2_Clustering.html"><strong aria-hidden="true">3.</strong> Clustering</a></li><li class="chapter-item expanded "><a href="3_Classificazione.html"><strong aria-hidden="true">4.</strong> Classificazione</a></li><li class="chapter-item expanded "><a href="4_Predizione.html"><strong aria-hidden="true">5.</strong> Regressione</a></li><li class="chapter-item expanded "><a href="5_Reti_e_modelli_random.html"><strong aria-hidden="true">6.</strong> Reti e Modelli Random</a></li><li class="chapter-item expanded "><a href="6_Graph_matching.html"><strong aria-hidden="true">7.</strong> Graph Matching</a></li><li class="chapter-item expanded "><a href="7_Graph_Mining.html"><strong aria-hidden="true">8.</strong> Graph Mining</a></li><li class="chapter-item expanded "><a href="8_Catene_di_Markov_HMM.html"><strong aria-hidden="true">9.</strong> Catene di Markov</a></li><li class="chapter-item expanded "><a href="9_Sistemi_di_raccomandazione.html"><strong aria-hidden="true">10.</strong> Recommendation Systems</a></li><li class="chapter-item expanded "><a href="10_Reti_neurali.html"><strong aria-hidden="true">11.</strong> Reti Neurali</a></li><li class="chapter-item expanded "><a href="extra_1_Cenni_di_analisi_testuale.html"><strong aria-hidden="true">12.</strong> Cenni di Analisi Testuale</a></li><li class="chapter-item expanded "><a href="extra_2_Rappresentazione_di_immagini.html"><strong aria-hidden="true">13.</strong> Rappresentazione di Immagini</a></li><li class="chapter-item expanded "><a href="extra_3_Word_embedding_e_Sentiment_Analysis.html"><strong aria-hidden="true">14.</strong> Sentiment Analysis</a></li><li class="chapter-item expanded "><a href="11_Map-Reduce.html" class="active"><strong aria-hidden="true">15.</strong> Map-Reduce</a></li><li class="chapter-item expanded "><a href="12_advanced_mba.html"><strong aria-hidden="true">16.</strong> Advanced Market Basket Analysis</a></li><li class="chapter-item expanded "><a href="13_dimensionality_reduction.html"><strong aria-hidden="true">17.</strong> Dimensionality Reduction</a></li><li class="chapter-item expanded "><a href="14_recommendation_systems.html"><strong aria-hidden="true">18.</strong> Advanced Recommendation Systems</a></li><li class="chapter-item expanded "><a href="15_finding_similar_items.html"><strong aria-hidden="true">19.</strong> Locality Sensitive Hashing</a></li><li class="chapter-item expanded "><a href="16_ Link_analysis.html"><strong aria-hidden="true">20.</strong> Link Analysis</a></li><li class="chapter-item expanded "><a href="17_communities.html"><strong aria-hidden="true">21.</strong> Community Detection</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">data-mining</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="hadoop"><a class="header" href="#hadoop">Hadoop</a></h1>
+<p>Hadoop è un framework opensource (progetto Apache, sviluppato da Yahoo). Lo scopo di Hadoop è quello di immagazzinare e processare dataset in scala massiva. Hadoop può girare su un cluster di <a href="https://susedefines.suse.com/definition/commodity-hardware/">comodity hardware</a>. Le seguenti componenti formano il core del framework:</p>
+<ul>
+<li><strong>HDFS</strong>, un file system distribuito</li>
+<li><strong>MapReduce</strong>, modello di programmazione per large scale data processing.</li>
+</ul>
+<p>Hadoop astrae la complessità dietro i sistemi distribuiti, permettendo a programmatori senza alcuna competenza nel campo di poter utilizzare facilmente le risorse di un data center per elaborare grandi moli di dati.</p>
+<h2 id="large-scale-computing"><a class="header" href="#large-scale-computing">Large scale computing</a></h2>
+<p>Per processare grandi moli di dati vi sono due tecniche:</p>
+<ul>
+<li>Scale up: aumentare le prestazioni di un singolo nodo</li>
+<li>Scale out: aumentare il numero di nodi</li>
+</ul>
+<p>Nella maggior parte dei casi conviene adottare la seconda tecnica: si utilizza un cluster formato da <strong>commodity hardware</strong>, ovvero hardware economico, facilmente reperibile, e si organizza il computing dei dati in modo parallelo. Con lo scale out è necessario organizzare il processing dei dati in maniera distribuita, quindi orchestrare i nodi, adottare tecniche di fault tolerance nel caso di guasti, trasportare i dati da un nodo ad un altro etc.</p>
+<p>Hadoop risolve elegantemente questi problemi:</p>
+<ul>
+<li>Provvede un file system distribuito, astraendo le complicazioni sottostanti e permettendo al programmatore di accedere ai dati come in un normale file system.</li>
+<li>Introduce un modello di programmazione orientata al calcolo distribuito, ovvero Map-Reduce.</li>
+</ul>
+<h2 id="concetti-chiave"><a class="header" href="#concetti-chiave">Concetti chiave</a></h2>
+<p>L'infrastruttura dello storage <strong>HDFS</strong> è formata da:</p>
+<ul>
+<li><strong>Datanode</strong>, nodi che contengono e trasferiscono dati</li>
+<li><strong>Namenode</strong>, localizza i file nei datanode (orchestratore)</li>
+</ul>
+<p>I file sono divisi in blocchi e replicati sui datanode (replicazione spesso su diversi rack). Chunk da 16-64 mb vengono inviati ai workers per la computazione. L'utente può scegliere il grado di replicazione e la dimensione dei chunk.</p>
+<p>L'infrastruttura della componente <strong>MapReduce</strong> è la seguente:</p>
+<ul>
+<li><strong>Masternode</strong>, che orchestra la computazione</li>
+<li><strong>Workers</strong>, effettuano la computazione</li>
+</ul>
+<p>Ogni programma che gira su Hadoop rispetta la seguente pipeline (modello MapReduce):</p>
+<ul>
+<li>iterare su un grande numero di record <strong>in parallelo</strong></li>
+<li>Ad ogni iterazione, estrarre delle informazioni</li>
+<li>Eseguire uno shuffling ed un sorting dei risultati intermedi</li>
+<li>Aggregare i risultati intermedi</li>
+<li>Generare il risultato finale</li>
+</ul>
+<p>Vi sono due sole primitive:</p>
+<ul>
+<li>La <strong>map</strong> prende in input un oggetto <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mclose">)</span></span></span></span> con una chiave <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> ed un valore <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span></span></span></span> e restituisce un elenco di coppie chiave valore <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0315em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0315em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>. Il framework (Hadoop) colleziona tutte le coppie con la stessa chiave <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> e associa a <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> tutti i valori <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">])</span></span></span></span>.</li>
+<li>La <strong>reduce</strong> prende in input una chiave ed una lista di valori <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">])</span></span></span></span> e li combina in qualche modo.</li>
+</ul>
+<p>Ai nodi workers possono essere affidati task di <strong>map</strong> e di <strong>reduce</strong>. Solitamente lo scheduler assegna i task di map ai nodi che hanno i dati <strong>vicini</strong>, per risparmiare sul tempo. I <strong>risultati intermedi</strong> delle operazioni di map sono conservati nel file system locale dei nodi workers che li hanno svolti.</p>
+<p>Quando un nodo worker ha finito un task di map, produce <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> file intermedi (uno per ogni reduce instanziata) e avverte il master. Il master comunica la posizione dei file ai reducer instanziati.</p>
+<p>Se un worker è lento allora tutta la computazione sarà lenta. Per questo il masternode può assegnare <strong>lo stesso task</strong> a <strong>più worker</strong>. Chi finisce prima "vince" e segnala i risultati al masternode, mentre gli altri worker verranno interrotti.</p>
+<p>Quando la funzione <strong>reduce</strong> è <strong>commutativa</strong> e <strong>associativa</strong> è possibile anticipare la computazione con dei <strong>combiners</strong>: si aggregano i dati intermedi direttamente nel nodo worker che li ha prodotti.</p>
+<p>Se si vuole controllare come le chiavi vengono partizionate negli <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> file intermedi, si può utilizzare un <strong>partitioner</strong>, definendo una hash function propria.</p>
+<p>Al resto ci pensa il framework Hadoop: quando lo sviluppatore sottomette il job, hadoop penserà a:</p>
+<ul>
+<li>Gestire lo scheduling</li>
+<li>Gestire la distribuzione dei dati</li>
+<li>Gestire la sincronizzazione dei risultati</li>
+<li>Gestire fallimenti ed errori</li>
+<li>Gestire il file system distribuito</li>
+</ul>
+<p>Molto spesso il numero di task istanziati eccede il numero massimo di task eseguibili in maniera concorrente, per questo lo <strong>scheduler</strong> tiene una coda dei task, eseguiti ogni qual volta un worker è disponibile.</p>
+<h3 id="proprietà-di-hadoop"><a class="header" href="#proprietà-di-hadoop">Proprietà di Hadoop</a></h3>
+<ul>
+<li><strong>Data locality</strong>: dati e worker devono essere vicini</li>
+<li><strong>Architettura senza condivisione</strong>: ogni nodo è indipendente e autosufficiente</li>
+<li><strong>Localizzazione</strong>: porta il worker dai dati e non viceversa (così da non far spostare i dati nella rete)</li>
+<li><strong>Sincronizzazione</strong>: tra le map e le reduce, tramite raggruppamento per chiavi (ottenuto tramite sorting dei risultati intermedi).</li>
+<li><strong>Gestione fallimenti</strong>:
+<ul>
+<li><strong>map failure</strong>: si rischedula il task su un altro worker e si notificano i reducer.</li>
+<li><strong>reducer failure</strong>: si rischedula il task su un altro worker.</li>
+<li><strong>master failure</strong>: aborto del job e notifica al client.</li>
+</ul>
+</li>
+</ul>
+<h3 id="natural-join-example"><a class="header" href="#natural-join-example">Natural join example</a></h3>
+<p>Abbiamo due tabelle <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span></span></span></span> e <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span></span>. Vogliamo calcolare la natural join tra queste ultime.</p>
+<pre><code class="language-python">def R_map(k, v): 
+	b = v[1]
+    a = v[0]
+    emit(b, (a, "R"))
+
+def S_map(k, v):
+	b = v[0]
+    c = v[1]
+	emit(b, (c, "S"))
+	
+def natural_join_reduce(k, w):
+	b = k
+	a_set = [ v[0] if v[1] == "R" for v in w ]
+	c_set = [ v[0] if v[1] == "S" for v in w ]
+	for a in a_set:
+		for c in c_set:
+			emit(a, b, c)
+</code></pre>
+<h2 id="yarn"><a class="header" href="#yarn">Yarn</a></h2>
+<p>YARN (Yet Another Resource Negoziator) è la componente di Hadoop che si occupa di generare e coordinare i map/reduce task (master). È composto da tre pezzi:</p>
+<ul>
+<li>Resource manager</li>
+<li>Node manager</li>
+<li>Application master</li>
+</ul>
+<p><img src="ch_1_Map-Reduce.assets/image-20210606171851288.png" alt="image-20210606171851288" /></p>
+<h3 id="assegnazione-dei-task"><a class="header" href="#assegnazione-dei-task">Assegnazione dei task</a></h3>
+<p>Hadoop permette di specificare il grado di parallelismo di ogni macchina in configurazione, esprimendo il numero di slot. Un <strong>slot</strong> è un contenitore in cui può finire un map/reduce task in esecuzione.</p>
+<h3 id="matrix-vector-multiplicatione-example"><a class="header" href="#matrix-vector-multiplicatione-example">Matrix-Vector multiplicatione example</a></h3>
+<p>Sia <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> una matrice di dimensione <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>. Sia <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span></span></span></span> un vettore di dimensione <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>. La moltiplicazione matrice-vettore produce un vettore <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> di lunghezza <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> dove:
+<span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:3.0652em;vertical-align:-1.4138em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6514em;"><span style="top:-1.8723em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.4138em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">ij</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span>
+Supponiamo che <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> e <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span></span></span></span> siano file su HDFS. Ogni entry della matrice può essere conservata esplicitamente come <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mopen">(</span><span class="mord mathnormal">i</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">ij</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> (stessa cosa per <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span></span></span></span>).</p>
+<p>Se <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span></span></span></span> riesce ad entrare in memoria centrale, possiamo scrivere la seguente procedura:</p>
+<pre><code class="language-python">def map(k,v):
+	v = get_v_from_cache()
+	i = v[0]
+	j = v[1]
+	m_ij = v[2]
+	v_i = v[i]
+	emit(i, (v_i * m_ij))
+
+# w conterrà i risultati di tutti 
+# i prodotti di indice "i"
+
+def reduce(k, w): 
+	i = k 
+	x_i = 0
+	for v in w:
+		x_i += v
+	emit(i, x_i)
+</code></pre>
+<p>Se <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span></span></span></span> non entra in memoria, allora si dividono sia la matrice <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> che il vettore <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span></span></span></span> in fasce:</p>
+<p><img src="ch_1_Map-Reduce.assets/image-20210606174043400.png" alt="image-20210606174043400" /></p>
+<p>Quando si assegnano ai worker i map-task si passano dati i dati di uno stripe della matrice e del corrispondente stripe del vettore.</p>
+<h3 id="matrix-multiplication-example"><a class="header" href="#matrix-multiplication-example">Matrix multiplication example</a></h3>
+<p>Siano <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> e <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> due matrici entrambi di dimensione <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>.</p>
+<pre><code class="language-python"># il valore è (i, j, m_ij). Invia come chiave 
+# la colonna j e come valore "M" (identificativo), 
+# i (la riga) ed m (il valore). 
+def M_matrix_map(k, v):
+    i = v[0]
+    j = v[1]
+    m = v[2]
+    emit(j, ("M", i, m))
+
+# il valore è (j, k, n_jk). Invia come chiave 
+# la riga j e come valore "N" (identificativo), 
+# i (la riga) ed n (il valore). 
+def N_matrix_map(k, v):
+    j = v[0]
+    k = v[1]
+    n = v[2]
+    emit(j, ("N", k, n))
+
+# si dividono gli elementi raggruppati sono la chiave
+# "i" e si dividono in base alla matrice di provenienza. 
+# Si itera tra gli elementi di M e poi tra gli elementi di 
+# N e si performa il prodotto la riga di M e la colonna di 
+# N. Si emette come chiave (i, k) (riga di M e colonna di N)
+def prod_reduce(k, w):
+    j = k
+    j_cols_M = [ m if v[0] == "M" for v in w ]
+    j_rows_N = [ n if v[0] == "N" for v in w ]
+    for (_, i, m_ij) in j_cols_M:
+        for (_, k, n_jk) in j_rows_N:
+            emit((i,k), (m_ij * n_jk))
+            
+# funzione identità
+def identity_map(k, v):
+    emit(k, v)
+
+# Si raggruppano i prodotti che formano l'elemento
+# (i,k) nella matrice risultante e si sommano. 
+# si emette (i,k) come chiave ed il valore dell'elemento 
+# come valore.
+def sum_reduce(k, w):
+    return (k, sum(w))
+    
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="extra_3_Word_embedding_e_Sentiment_Analysis.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="12_advanced_mba.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="extra_3_Word_embedding_e_Sentiment_Analysis.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="12_advanced_mba.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
